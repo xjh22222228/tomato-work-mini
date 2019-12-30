@@ -1,0 +1,33 @@
+<view class="my">
+  <view class="info">
+    <view class="avatar">
+      <image src="{{ userInfo.avatarUrl }}"></image>
+    </view>
+    <view class="nick-name">{{ userInfo.loginName }}</view>
+  </view>
+
+  <view class="cell">
+    <van-cell-group>
+      <van-cell 
+        wx:for="{{ cellList }}" 
+        wx:key="name" 
+        icon="{{ item.icon }}"
+        title="{{ item.name }}" 
+        url="{{ item.url }}"
+        is-link
+      />
+    </van-cell-group>
+  </view>
+
+  <view style="margin: 30px 10px;">
+    <van-button 
+      type="default"
+      block
+      custom-style="width: 100%;"
+      bind:click="handleLogout"
+    >
+      退出登录
+    </van-button>
+  </view>
+</view>
+<auth-login id="auth-login" bind:change="onAuthChange"></auth-login>

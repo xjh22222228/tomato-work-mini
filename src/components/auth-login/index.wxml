@@ -1,0 +1,18 @@
+<!-- 授权登录 -->
+<view class="auth" wx:if="{{ !isLogin }}">
+  <view>
+    <image src="/src/assets/img/common/auth.png" class="icon"></image>
+    <view>登录后可查看完整内容</view>
+    <van-button 
+      type="primary" 
+      custom-style="margin-top: 15px;"
+      bind:click="handleLoginButton"
+      size="small"
+      bind:click="handleLoginButton"
+    >
+      登录
+    </van-button>
+  </view>
+
+  <login show="{{ showLogin }}" bind:close="onClose"></login>
+</view>

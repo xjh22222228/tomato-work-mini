@@ -1,0 +1,13 @@
+<!-- 
+  结果，类似 https://ant.design/components/result-cn/
+ -->
+<view class="result custom-class">
+  <image 
+    src="/miniapp-common/assets/img/exception/error.png" 
+    mode="widthFix" 
+    class="icon"
+  >
+  </image>
+  <view class="message" bind:tap="onClickMessage">{{ message }}</view>
+  <slot></slot>
+</view>

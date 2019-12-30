@@ -1,0 +1,21 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  text-align: center;
+  align-items: center;
+  border-bottom: 10px solid #f2f2f2;
+  background-color: rgb(185, 219, 189);
+}
+
+.info .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.info .nick-name {
+  margin-top: 10px;
+}

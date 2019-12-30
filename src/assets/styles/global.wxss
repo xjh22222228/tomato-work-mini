@@ -1,0 +1,15 @@
+page {
+  font-family: PingFang SC, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+
+  /* 主题色 */
+  --theme-color: rgb(0, 171, 197);
+}
+
+/* Vant */
+page {
+  /* Button */
+  --button-primary-background-color: var(--theme-color);
+  --button-primary-border-color: var(--theme-color);
+}

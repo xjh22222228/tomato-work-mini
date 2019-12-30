@@ -1,0 +1,36 @@
+<!-- 日期范围选择 -->
+<view class="date-picker">
+  <view class="date-cell">
+    <picker 
+      value="{{ startDate }}"
+      mode="date"
+      bind:change="getStartDateValue"
+      fields="{{ fields }}"
+    >
+      <van-cell 
+        value="{{ startDate }}" 
+        is-link
+        arrow-direction="down"
+        border="{{ false }}"
+        value-class="cell-value"
+      />
+    </picker>
+  </view>
+  <text class="line">-</text>
+  <view class="date-cell">
+    <picker 
+      value="{{ endDate }}"
+      mode="date"
+      bind:change="getEndDateValue"
+      fields="{{ fields }}"
+    >
+      <van-cell 
+        value="{{ endDate }}" 
+        is-link
+        arrow-direction="down"
+        border="{{ false }}"
+        value-class="cell-value"
+      />
+    </picker>
+  </view>
+</view>

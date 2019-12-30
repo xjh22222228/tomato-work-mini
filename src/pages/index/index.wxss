@@ -1,0 +1,25 @@
+@import "../../assets/styles/base-class.wxss";
+
+.nav {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.nav .box {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.nav .box:not(:nth-child(3n)) {
+  border-right: 1px solid #eee;
+}
+
+.row {
+  border-top: 1px solid #eee;
+}
+
+.nav .icon {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
+}

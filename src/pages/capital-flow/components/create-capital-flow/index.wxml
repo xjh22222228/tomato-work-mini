@@ -1,0 +1,78 @@
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="bottom"
+  custom-class="popup"
+  bind:close="onClose"
+>
+  <view wx:if="{{ classifyList.length > 0 }}">
+    <view class="classify">
+      <van-dropdown-menu>
+        <van-dropdown-item 
+          value="{{ classifyValue }}" 
+          options="{{ classifyList }}"
+          bind:change="onDropdownChange"
+        />
+      </van-dropdown-menu>
+    </view>
+
+    <view class="form">
+      <picker 
+        value="{{ date }}" 
+        class="date-picker" 
+        mode="date" 
+        bind:change="onDateChange"
+      >
+        <text class="date">{{ date }}</text>
+      </picker>
+
+      <van-field
+        value="{{ price }}"
+        label="金额:"
+        type="digit"
+        placeholder="请输入金额"
+        border="{{ false }}"
+        maxlength="{{ 8 }}"
+        data-field-name="price"
+        bind:change="onInputChange"
+        focus
+        title-width="50px"
+      />
+      <van-field
+        value="{{ remarks }}"
+        label="备注:"
+        type="textarea"
+        placeholder="添加备注信息"
+        autosize
+        clearable
+        maxlength="{{ 300 }}"
+        border="{{ false }}"
+        data-field-name="remarks"
+        bind:change="onInputChange"
+        title-width="50px"
+      />
+      
+      <van-button 
+        type="info" 
+        bind:click="handleSubmit"
+        block
+        custom-style="width: 100%; margin-top: 15px;"
+        loading="{{ confirmLoading }}"
+      >
+        {{ data ? '更新' : '新增' }}
+      </van-button>
+    </view>
+
+    <view class="fixed-bottom">
+      <image 
+        src="/src/assets/img/common/delete.svg" 
+        class="icon"
+        bind:tap="handleDeleteButton"
+      >
+      </image>
+    </view>
+
+    <van-dialog id="van-dialog" />
+  </view>
+  <no-data wx:else message="请先添加类别"></no-data>
+</van-popup>

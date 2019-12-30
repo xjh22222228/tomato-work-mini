@@ -1,0 +1,17 @@
+.date-picker {
+  display: flex;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.date-picker .date-cell {
+  flex: 1;
+}
+
+.cell-value {
+  text-align: center;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+}

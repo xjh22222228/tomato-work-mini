@@ -1,0 +1,13 @@
+<view>
+  <van-cell-group>
+    <van-cell 
+      wx:for="{{ data }}"
+      wx:key="id"
+      title="单元格" 
+      value="{{ item.__date__ }}" 
+      label="{{ item.content }}"
+      arrow-direction="none"
+      is-link
+    />
+  </van-cell-group>
+</view>

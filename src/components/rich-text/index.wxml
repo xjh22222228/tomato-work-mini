@@ -1,0 +1,5 @@
+<!-- 展示富文本 html -->
+<import src="../../lib/wxParse/wxParse.wxml"/>
+<view class="rich-text">
+  <template is="wxParse" data="{{ wxParseData: richText.nodes }}" />
+</view>

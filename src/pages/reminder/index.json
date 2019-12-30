@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提醒事项",
+  "usingComponents": {
+    "create-reminder": "./components/create-reminder/index"
+  }
+}

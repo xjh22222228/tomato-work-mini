@@ -1,0 +1,15 @@
+<!-- 上拉加载更多 -->
+<block>
+  <view class="reach-bottom" wx:if="{{ loading }}">
+    <image src="/src/assets/img/common/loading.svg" class="loading"></image>
+  </view>
+
+  <view class="reach-bottom" wx:elif="{{ !hasMore || !message }}">
+    <van-divider 
+      contentPosition="center" 
+      fontSize="12"
+    >
+      {{ message }}
+    </van-divider>
+  </view>
+</block>

@@ -1,0 +1,50 @@
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="bottom"
+  custom-class="popup"
+  bind:close="onClose"
+>
+  <view class="container">
+    <view class="title">欢迎登录Tomato Work</view>
+    <van-field
+      value="{{ loginName }}"
+      clearable
+      placeholder="请输入登录名"
+      custom-style="background: transparent !important; padding-left: 0; border-bottom: 1px solid #eee;"
+      input-class="input"
+      border="{{ false }}"
+      maxlength="{{ 32 }}"
+      data-name="loginName"
+      bind:change="onInputChange"
+    />
+
+    <van-field
+      value="{{ password }}"
+      type="password"
+      placeholder="请输入密码"
+      clearable
+      custom-style="background: transparent !important; padding-left: 0; border-bottom: 1px solid #eee;"
+      input-class="input"
+      border="{{ false }}"
+      maxlength="{{ 32 }}"
+      data-name="password"
+      bind:change="onInputChange"
+    />
+    <van-button 
+      type="primary" 
+      custom-style="margin: 25px 0; width: 100%;"
+      block
+      bind:click="handleSubmitLogin"
+      loading="{{ loading }}"
+      loading-text="登录中..."
+    >
+      登录
+    </van-button>
+    <view class="action">
+      <view bind:tap="handleVisitorLogin">游客登录</view>
+    </view>
+  </view>
+
+  <van-notify id="van-notify" />
+</van-popup>

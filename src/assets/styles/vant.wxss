@@ -1,0 +1,5 @@
+/* Cell */
+.cell-value-class {
+  /* 使label更宽 */
+  flex: none !important;
+}

@@ -1,0 +1,37 @@
+{
+  "name": "tomato-work-weapp",
+  "version": "1.1.0",
+  "description": "tomato work weapp",
+  "main": "app.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xjh22222228/tomato-work-weapp.git"
+  },
+  "keywords": [
+    "tomato work",
+    "weapp",
+    "miniprogram"
+  ],
+  "author": "xiejiahe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xjh22222228/tomato-work-weapp/issues"
+  },
+  "homepage": "https://github.com/xjh22222228/tomato-work-weapp#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.0.1",
+    "blueimp-md5": "^2.12.0",
+    "dayjs": "^1.8.17",
+    "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-computed": "^2.1.1",
+    "qs": "^6.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0"
+  }
+}

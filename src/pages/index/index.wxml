@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="nav">
+    <van-row custom-class="row">
+      <van-col 
+        span="8" 
+        wx:for="{{ navList }}"
+        wx:key="name"
+      >
+        <view 
+          class="box" 
+          hover-class="touch-active" 
+          hover-stay-time="{{ 50 }}"
+          bind:tap="handleClickNav"
+          data-detail="{{ item }}"
+        >
+          <image src="{{ item.imageUrl }}" class="icon"></image>
+          <view class="name">{{ item.name }}</view>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+</view>
+<auth-login id="auth-login"></auth-login>

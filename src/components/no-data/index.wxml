@@ -1,0 +1,6 @@
+<!-- 没有数据 -->
+<view class="no-data custom-class" style="{{ customStyle }}">
+  <image src="/src/assets/img/common/no-data.svg" class="icon"></image>
+  <view class="message">{{ message }}</view>
+  <slot></slot>
+</view>

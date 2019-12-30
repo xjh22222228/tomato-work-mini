@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "财务管理",
+  "usingComponents": {
+    "create-capital-flow": "./components/create-capital-flow/index"
+  }
+}

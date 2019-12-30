@@ -1,0 +1,28 @@
+page {
+  padding-bottom: 80px;
+}
+
+.price-detail {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0;
+  text-align: center;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 12px;
+}
+
+.price-detail .num {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.create-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cell-group {
+  border-top: 10px solid #f2f2f2;
+}

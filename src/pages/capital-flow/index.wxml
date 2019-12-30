@@ -1,0 +1,91 @@
+<view>
+  <view class="price-detail">
+    <view class="price">
+      <view class="num">￥{{ income }}</view>
+      <view>收入(元)</view>
+    </view>
+    <view class="price">
+      <view class="num">￥{{ consumption }}</view>
+      <view>支出(元)</view>
+    </view>
+    <view class="price">
+      <view class="num">￥{{ available }}</view>
+      <view>实际收入(元)</view>
+    </view>
+  </view>
+
+  <van-search 
+    value="{{ keyword }}" 
+    placeholder="输入搜索关键词"
+    shape="round"
+    use-action-slot
+    bind:search="$resetData"
+    bind:change="onSearchChange"
+  >
+    <view slot="action" bind:tap="$resetData">搜索</view>
+  </van-search>
+  <range-picker-date bind:confirm="getDateValue" />
+
+  <block wx:if="{{ data.length > 0 }}">
+    <van-cell-group custom-class="cell-group">
+      <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
+        <van-cell 
+          value="{{ item.__symbol__ + item.price }}"
+          use-label-slot
+          is-link
+          value-class="cell-value-class"
+          arrow-direction="none"
+          bind:click="handleClickCell"
+          data-detail="{{ item }}"
+        >
+          <view slot="title">
+            <van-tag 
+              type="{{ item.__tagType__ }}" 
+              style="margin-right: 5px;"
+            >
+              {{ item.__statusText__ }}
+            </van-tag>
+            <text class="van-cell-text">{{ item.name }}</text>
+          </view>
+          <view slot="label">
+            <view>日期：{{ item.__date__ }} {{ item.__week__ }}</view>
+            <view wx:if="{{ item.remarks }}">备注：{{ item.remarks }}</view>
+          </view>
+        </van-cell>
+        <van-button 
+          slot="right"
+          type="danger" 
+          custom-style="height: 100%; width: 65px;"
+          bind:click="handleDelete"
+          data-id="{{ item.id }}"
+        >
+          删除
+        </van-button>
+      </van-swipe-cell>
+    </van-cell-group>
+  </block>
+  <no-data wx:else />
+
+  <reach-bottom-loading
+    has-more="{{ pagination.hasMore }}"
+    loading="{{ pagination.loading }}"
+  />
+
+  <view class="create-button">
+    <van-button 
+      type="info"
+      block
+      custom-style="width: 100%;"
+      bind:click="handleToggleCreatePopupShow"
+    >
+      新增一笔
+    </van-button>
+  </view>
+</view>
+
+<create-capital-flow 
+  show="{{ createPopupShow }}" 
+  data="{{ currentData }}"
+  bind:close="handleToggleCreatePopupShow"
+  bind:success="$refreshData"
+/>

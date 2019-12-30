@@ -1,0 +1,63 @@
+<view>
+  <range-picker-date bind:confirm="getDateValue" />
+
+  <block wx:if="{{ data.length > 0 }}">
+    <van-cell-group custom-class="cell-group">
+      <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
+        <van-cell 
+          value="{{ item.__date__ }}"
+          use-label-slot
+          is-link
+          value-class="cell-value-class"
+          arrow-direction="none"
+          bind:click="handleClickCell"
+          data-detail="{{ item }}"
+        >
+          <view slot="title">
+            <van-tag 
+              type="{{ item.__tagType__ }}" 
+              style="margin-right: 5px;"
+            >
+              {{ item.__statusText__ }}
+            </van-tag>
+          </view>
+          <view slot="label">备注：{{ item.content }}</view>
+        </van-cell>
+        <van-button 
+          slot="right"
+          type="danger" 
+          custom-style="height: 100%; width: 65px;"
+          bind:click="handleDelete"
+          data-id="{{ item.id }}"
+        >
+          删除
+        </van-button>
+      </van-swipe-cell>
+    </van-cell-group>
+  </block>
+  <no-data wx:else />
+
+  <reach-bottom-loading
+    has-more="{{ pagination.hasMore }}"
+    loading="{{ pagination.loading }}"
+  />
+
+  <view class="create-button">
+    <van-button 
+      type="info"
+      block
+      bind:click="handleCreate"
+      custom-style="width: 100%;"
+      bind:click="onClickCreateButton"
+    >
+      新增一项
+    </van-button>
+  </view>
+</view>
+
+<create-reminder 
+  show="{{ popupShow }}" 
+  data="{{ currentData }}"
+  bind:close="onPopupClose"
+  bind:success="$resetData"
+/>

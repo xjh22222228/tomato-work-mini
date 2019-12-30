@@ -1,0 +1,19 @@
+.no-data {
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #A1A1A1;
+}
+
+.no-data .icon {
+  width: 100px;
+  height: 100px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
