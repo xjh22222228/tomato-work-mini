@@ -1,7 +1,7 @@
 <view class="my">
   <view class="info">
     <view class="avatar">
-      <image src="{{ userInfo.avatarUrl }}"></image>
+      <image src="{{ userInfo.avatarUrl }}" class="image"></image>
     </view>
     <view class="nick-name">{{ userInfo.loginName }}</view>
   </view>

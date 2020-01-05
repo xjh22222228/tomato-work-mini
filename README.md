@@ -21,7 +21,7 @@ WEB：[tomato-work](https://github.com/xjh22222228/tomato-work)
 - [ ] 今日待办
 - [x] 财务管理
 - [ ] 个人中心
-- [ ] 我的备忘
+- [x] 我的备忘
 - [ ] 站内消息
 
 

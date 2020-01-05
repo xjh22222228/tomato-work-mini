@@ -16,11 +16,11 @@ Page({
         name: '财务管理',
         url: CAPITAL_FLOW_URL
       },
-      // {
-      //   imageUrl: '/src/assets/img/index/memorandum.png',
-      //   name: '我的备忘',
-      //   url: MEMORANDUM_URL
-      // },
+      {
+        imageUrl: '/src/assets/img/index/memorandum.png',
+        name: '我的备忘',
+        url: MEMORANDUM_URL
+      },
       // {
       //   imageUrl: '/src/assets/img/index/todo-list.png',
       //   name: '活动清单',

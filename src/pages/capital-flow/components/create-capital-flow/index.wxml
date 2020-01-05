@@ -41,7 +41,6 @@
       <van-field
         value="{{ remarks }}"
         label="备注:"
-        type="textarea"
         placeholder="添加备注信息"
         autosize
         clearable

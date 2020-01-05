@@ -2,7 +2,7 @@
   "pages": [
     "src/pages/index/index",
     "src/pages/memorandum/index",
-    "src/pages/memorandum-detail/index",
+    "src/pages/memorandum/editor/index",
     "src/pages/message/index",
     "src/pages/reminder/index",
     "src/pages/today-task/index",

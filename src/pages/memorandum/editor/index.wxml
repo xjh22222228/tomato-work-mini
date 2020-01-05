@@ -1,0 +1,28 @@
+<view class="edit-page">
+  <van-cell-group>
+    <van-field
+      value="{{ title }}"
+      placeholder="{{ defaultTitle }}"
+      border="{{ false }}"
+      bind:change="onInputChange"
+      input-class="input"
+      maxlength="{{ 200 }}"
+      focus="{{ !id }}"
+    />
+  </van-cell-group>
+
+  <editor
+    class="editor"
+    id="editor"
+    placeholder="点击输入内容"
+    bind:ready="onEditorReady"
+    bind:input="onEditorChange"
+  />
+
+  <view class="action">
+    <text bind:tap="onFinish" class="button">完成</text>
+    <text class="iconfont iconshanchu" wx:if="{{ id }}" bind:tap="onDelete"></text>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

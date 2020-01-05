@@ -3,6 +3,8 @@
 export const LOGIN_URL = '/src/pages/login/index';
 // 我的备忘
 export const MEMORANDUM_URL = '/src/pages/memorandum/index';
+// 我的备忘编辑器
+export const MEMORANDUM_EDITOR_URL = '/src/pages/memorandum/editor/index';
 // 消息中心
 export const MESSAGE_URL = '/src/pages/message/index';
 // 提醒事项

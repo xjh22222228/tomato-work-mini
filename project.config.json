@@ -97,6 +97,20 @@
 					"pathName": "src/pages/memorandum-detail/index",
 					"query": "?id=7219f09f-f028-49ff-9847-c357b4fbc670",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的备忘",
+					"pathName": "src/pages/memorandum/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "我的备忘编辑器",
+					"pathName": "src/pages/memorandum/editor/index",
+					"query": "id=81980b29-0fed-43bd-8d18-d5a354a2b77b",
+					"scene": null
 				}
 			]
 		}

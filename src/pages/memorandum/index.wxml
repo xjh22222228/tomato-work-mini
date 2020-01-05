@@ -1,3 +1,36 @@
-<view>
-  
+<view wx:if="{{ data.length > 0 }}">
+  <van-cell-group>
+    <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
+      <view 
+        class="ls" 
+        hover-class="touch-active" 
+        hover-stay-time="{{ 0 }}"
+        bind:tap="onClickCell"
+        data-id="{{ item.id }}"
+      >
+        <view class="title">{{ item.title }}</view>
+        <view class="content">
+          <text class="time">{{ item.__time__ }}</text>
+          <text>{{ item.markdown }}</text>
+        </view>
+      </view>
+      <van-button 
+        slot="right"
+        type="danger" 
+        custom-style="height: 100%; width: 65px;"
+        bind:click="onDelete"
+        data-id="{{ item.id }}"
+      >
+        删除
+      </van-button>
+    </van-swipe-cell>
+  </van-cell-group>
+</view>
+<no-data wx:else />
+
+<view class="bottom-action">
+  {{ data.length }}个备忘录
+  <navigator url="{{ MEMORANDUM_EDITOR_URL }}">
+    <image src="/src/assets/img/common/edit.svg" class="edit"></image>
+  </navigator>
 </view>

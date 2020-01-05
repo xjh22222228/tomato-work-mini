@@ -1,0 +1,50 @@
+@import "../../assets/styles/base-class.wxss";
+
+page {
+  padding-bottom: 50px;
+}
+
+.ls {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.ls .title,
+.ls .content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ls .title {
+  color: #000;
+}
+
+.ls .content {
+  font-size: 13px;
+}
+
+.ls .content .time {
+  margin-right: 10px;
+  color: #999;
+}
+
+.bottom-action {
+  z-index: 8;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 12px;
+  background: #fff;
+}
+
+.bottom-action .edit {
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  width: 23px;
+  height: 23px;
+}
