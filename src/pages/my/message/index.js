@@ -1,12 +1,12 @@
 import pullUpPagination from '../../../behaviors/pullUpPagination';
 import { merge } from '../../../utils/object';
-import { serviceGetInnerMessage } from '../../../services/innerMessage';
+import { serviceGetInnerMessage, serviceUpdateInnerMessageHasRead } from '../../../services/innerMessage';
 
 Page(merge(pullUpPagination, {
-  data: {
-    
-  },
-  getData() {
-    return serviceGetInnerMessage();
+  async getData() {
+    const res = await serviceGetInnerMessage();
+    const ids = res.rows.map(msg => !msg.hasRead ? msg.id : '').join(',');
+    ids && serviceUpdateInnerMessageHasRead(ids);
+    return res;
   }
 }))

@@ -85,7 +85,7 @@ Component({
       const { data } = this.properties;
       const timestamp = dayjs(date).valueOf();
       const params = {
-        date: (Date.now() - timestamp) + timestamp,
+        date: timestamp,
         typeId: classifyValue,
         price: Number(price),
         remarks

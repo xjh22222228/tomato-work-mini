@@ -1,13 +1,16 @@
 <view>
-  <van-cell-group>
-    <van-cell 
-      wx:for="{{ data }}"
-      wx:key="id"
-      title="单元格" 
-      value="{{ item.__date__ }}" 
-      label="{{ item.content }}"
-      arrow-direction="none"
-      is-link
-    />
-  </van-cell-group>
+  <view 
+    class="ls" 
+    wx:for="{{ data }}" 
+    wx:key="id" 
+    hover-class="touch-active"
+    hover-stay-time="{{ 0 }}"
+  >
+    <view class="dot" wx:if="{{ !item.hasRead }}"></view>
+    <view class="top">
+      <view class="title">{{ item.title }}</view>
+      <view class="date">{{ item.__date__ }}</view>
+    </view>
+    <view class="content">{{ item.content }}</view>
+  </view>
 </view>

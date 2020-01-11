@@ -1,13 +1,14 @@
 import { serviceLogout } from '../../../services/user';
+import { MY_MESSAGE_URL } from '../../../constants/routePath';
 
 Page({
   data: {
     cellList: [
-      // {
-      //   name: '消息中心',
-      //   url: '',
-      //   icon: '/src/assets/img/index/about.png'
-      // },
+      {
+        name: '我的消息',
+        url: MY_MESSAGE_URL,
+        icon: '/src/assets/img/index/message.png'
+      },
       // {
       //   name: '消息通知',
       //   url: '',
@@ -30,8 +31,5 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo
     });
-  },
-  handleToPage() {
-
   }
 })

@@ -8,6 +8,11 @@
   background-color: rgb(185, 219, 189);
 }
 
+.van-icon--image {
+  width: 25px !important;
+  height: 25px !important;
+}
+
 .info .avatar {
   width: 60px;
   height: 60px;

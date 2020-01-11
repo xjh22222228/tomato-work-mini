@@ -10,6 +10,8 @@ WEB：[tomato-work](https://github.com/xjh22222228/tomato-work)
 
 
 ## Preview
+由于个人类目权限问题，线上版本和开发版本某些功能有些出入，建议下载源码查看。
+
 ![](https://xjh22222228.github.io/public/img/tomato-work-weapp-qrcode.jpg)
 
 
@@ -22,7 +24,12 @@ WEB：[tomato-work](https://github.com/xjh22222228/tomato-work)
 - [x] 财务管理
 - [ ] 个人中心
 - [x] 我的备忘
-- [ ] 站内消息
+- [x] 我的消息
+
+## Setup
+```bash
+## 修改 project.config.json appid修改为你的小程序appid
+```
 
 
 ## License
