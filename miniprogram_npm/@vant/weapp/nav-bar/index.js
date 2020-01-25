@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     classes: ['title-class'],
     props: {
         title: String,
@@ -23,15 +25,15 @@ VantComponent({
     data: {
         statusBarHeight: 0
     },
-    created() {
-        const { statusBarHeight } = wx.getSystemInfoSync();
-        this.setData({ statusBarHeight });
+    created: function () {
+        var statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
+        this.setData({ statusBarHeight: statusBarHeight });
     },
     methods: {
-        onClickLeft() {
+        onClickLeft: function () {
             this.$emit('click-left');
         },
-        onClickRight() {
+        onClickRight: function () {
             this.$emit('click-right');
         }
     }

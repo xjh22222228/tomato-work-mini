@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/xjh22222228/tomato-work-weapp#readme",
   "dependencies": {
-    "@vant/weapp": "^1.0.2",
+    "@vant/weapp": "^1.0.4",
     "blueimp-md5": "^2.12.0",
     "dayjs": "^1.8.17",
     "miniprogram-api-promise": "^1.0.4",

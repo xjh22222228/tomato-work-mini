@@ -1,14 +1,16 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     field: true,
     relation: {
         name: 'dropdown-menu',
         type: 'ancestor',
-        linked(target) {
+        linked: function (target) {
             this.parent = target;
             this.updateDataFromParent();
         },
-        unlinked() {
+        unlinked: function () {
             this.parent = null;
         }
     },
@@ -39,42 +41,46 @@ VantComponent({
         displayTitle: ''
     },
     methods: {
-        rerender() {
-            wx.nextTick(() => {
-                this.parent && this.parent.updateItemListData();
+        rerender: function () {
+            var _this = this;
+            wx.nextTick(function () {
+                _this.parent && _this.parent.updateItemListData();
             });
         },
-        updateDataFromParent() {
+        updateDataFromParent: function () {
             if (this.parent) {
-                const { overlay, duration, activeColor, closeOnClickOverlay, direction } = this.parent.data;
+                var _a = this.parent.data, overlay = _a.overlay, duration = _a.duration, activeColor = _a.activeColor, closeOnClickOverlay = _a.closeOnClickOverlay, direction = _a.direction;
                 this.setData({
-                    overlay,
-                    duration,
-                    activeColor,
-                    closeOnClickOverlay,
-                    direction
+                    overlay: overlay,
+                    duration: duration,
+                    activeColor: activeColor,
+                    closeOnClickOverlay: closeOnClickOverlay,
+                    direction: direction
                 });
             }
         },
-        onClickOverlay() {
+        onClickOverlay: function () {
             this.toggle();
             this.$emit('close');
         },
-        onOptionTap(event) {
-            const { option } = event.currentTarget.dataset;
-            const { value } = option;
-            const shouldEmitChange = this.data.value !== value;
-            this.setData({ showPopup: false, value });
-            setTimeout(() => {
-                this.setData({ showWrapper: false });
+        onOptionTap: function (event) {
+            var _this = this;
+            var option = event.currentTarget.dataset.option;
+            var value = option.value;
+            var shouldEmitChange = this.data.value !== value;
+            this.setData({ showPopup: false, value: value });
+            setTimeout(function () {
+                _this.setData({ showWrapper: false });
             }, this.data.duration || 0);
             this.rerender();
             if (shouldEmitChange) {
                 this.$emit('change', value);
             }
         },
-        toggle(show, options = {}) {
-            const { showPopup, duration } = this.data;
+        toggle: function (show, options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            var _a = this.data, showPopup = _a.showPopup, duration = _a.duration;
             if (show == null) {
                 show = !showPopup;
             }
@@ -82,22 +88,23 @@ VantComponent({
                 return;
             }
             if (!show) {
-                const time = options.immediate ? 0 : duration;
+                var time = options.immediate ? 0 : duration;
                 this.setData({ transition: !options.immediate, showPopup: show });
-                setTimeout(() => {
-                    this.setData({ showWrapper: false });
+                setTimeout(function () {
+                    _this.setData({ showWrapper: false });
                 }, time);
                 this.rerender();
                 return;
             }
-            this.parent.getChildWrapperStyle().then((wrapperStyle = '') => {
-                this.setData({
+            this.parent.getChildWrapperStyle().then(function (wrapperStyle) {
+                if (wrapperStyle === void 0) { wrapperStyle = ''; }
+                _this.setData({
                     transition: !options.immediate,
                     showPopup: show,
-                    wrapperStyle,
+                    wrapperStyle: wrapperStyle,
                     showWrapper: true
                 });
-                this.rerender();
+                _this.rerender();
             });
         }
     }

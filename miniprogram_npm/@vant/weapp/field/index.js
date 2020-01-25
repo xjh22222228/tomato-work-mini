@@ -1,6 +1,8 @@
-import { VantComponent } from '../common/component';
-import { getSystemInfoSync } from '../common/utils';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var utils_1 = require("../common/utils");
+component_1.VantComponent({
     field: true,
     classes: ['input-class', 'right-icon-class'],
     props: {
@@ -71,41 +73,43 @@ VantComponent({
     },
     data: {
         focused: false,
-        system: getSystemInfoSync().system.split(' ').shift().toLowerCase()
+        system: utils_1.getSystemInfoSync().system.split(' ').shift().toLowerCase()
     },
     methods: {
-        onInput(event) {
-            const { value = '' } = event.detail || {};
-            this.setData({ value });
-            wx.nextTick(() => {
-                this.emitChange(value);
+        onInput: function (event) {
+            var _this = this;
+            var _a = (event.detail || {}).value, value = _a === void 0 ? '' : _a;
+            this.setData({ value: value });
+            wx.nextTick(function () {
+                _this.emitChange(value);
             });
         },
-        onFocus(event) {
+        onFocus: function (event) {
             this.setData({ focused: true });
             this.$emit('focus', event.detail);
         },
-        onBlur(event) {
+        onBlur: function (event) {
             this.setData({ focused: false });
             this.$emit('blur', event.detail);
         },
-        onClickIcon() {
+        onClickIcon: function () {
             this.$emit('click-icon');
         },
-        onClear() {
+        onClear: function () {
+            var _this = this;
             this.setData({ value: '' });
-            wx.nextTick(() => {
-                this.emitChange('');
-                this.$emit('clear', '');
+            wx.nextTick(function () {
+                _this.emitChange('');
+                _this.$emit('clear', '');
             });
         },
-        onConfirm() {
+        onConfirm: function () {
             this.$emit('confirm', this.data.value);
         },
-        emitChange(value) {
+        emitChange: function (value) {
             this.$emit('input', value);
             this.$emit('change', value);
         },
-        noop() { }
+        noop: function () { }
     }
 });

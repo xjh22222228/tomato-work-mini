@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     classes: [
         'active-class',
         'disabled-class',
@@ -7,7 +9,7 @@ VantComponent({
     relation: {
         type: 'ancestor',
         name: 'sidebar',
-        linked(target) {
+        linked: function (target) {
             this.parent = target;
         }
     },
@@ -18,19 +20,20 @@ VantComponent({
         disabled: Boolean
     },
     methods: {
-        onClick() {
-            const { parent } = this;
+        onClick: function () {
+            var _this = this;
+            var parent = this.parent;
             if (!parent || this.data.disabled) {
                 return;
             }
-            const index = parent.children.indexOf(this);
-            parent.setActive(index).then(() => {
-                this.$emit('click', index);
+            var index = parent.children.indexOf(this);
+            parent.setActive(index).then(function () {
+                _this.$emit('click', index);
                 parent.$emit('change', index);
             });
         },
-        setActive(selected) {
-            return this.setData({ selected });
+        setActive: function (selected) {
+            return this.setData({ selected: selected });
         }
     }
 });

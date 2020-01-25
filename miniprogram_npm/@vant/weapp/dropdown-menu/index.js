@@ -1,17 +1,19 @@
-import { VantComponent } from '../common/component';
-import { addUnit } from '../common/utils';
-let ARRAY = [];
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var utils_1 = require("../common/utils");
+var ARRAY = [];
+component_1.VantComponent({
     field: true,
     relation: {
         name: 'dropdown-item',
         type: 'descendant',
-        linked(target) {
+        linked: function (target) {
             this.children.push(target);
             this.updateItemListData();
         },
-        unlinked(target) {
-            this.children = this.children.filter((child) => child !== target);
+        unlinked: function (target) {
+            this.children = this.children.filter(function (child) { return child !== target; });
             this.updateItemListData();
         }
     },
@@ -52,29 +54,30 @@ VantComponent({
     data: {
         itemListData: []
     },
-    beforeCreate() {
-        const { windowHeight } = wx.getSystemInfoSync();
+    beforeCreate: function () {
+        var windowHeight = wx.getSystemInfoSync().windowHeight;
         this.windowHeight = windowHeight;
         this.children = [];
         ARRAY.push(this);
     },
-    destroyed() {
-        ARRAY = ARRAY.filter(item => item !== this);
+    destroyed: function () {
+        var _this = this;
+        ARRAY = ARRAY.filter(function (item) { return item !== _this; });
     },
     methods: {
-        updateItemListData() {
+        updateItemListData: function () {
             this.setData({
-                itemListData: this.children.map((child) => child.data)
+                itemListData: this.children.map(function (child) { return child.data; })
             });
         },
-        updateChildrenData() {
-            this.children.forEach((child) => {
+        updateChildrenData: function () {
+            this.children.forEach(function (child) {
                 child.updateDataFromParent();
             });
         },
-        toggleItem(active) {
-            this.children.forEach((item, index) => {
-                const { showPopup } = item.data;
+        toggleItem: function (active) {
+            this.children.forEach(function (item, index) {
+                var showPopup = item.data.showPopup;
                 if (index === active) {
                     item.toggle();
                 }
@@ -83,34 +86,36 @@ VantComponent({
                 }
             });
         },
-        close() {
-            this.children.forEach((child) => {
+        close: function () {
+            this.children.forEach(function (child) {
                 child.toggle(false, { immediate: true });
             });
         },
-        getChildWrapperStyle() {
-            const { zIndex, direction } = this.data;
-            return this.getRect('.van-dropdown-menu').then((rect) => {
-                const { top = 0, bottom = 0 } = rect;
-                const offset = direction === 'down' ? bottom : this.windowHeight - top;
-                let wrapperStyle = `z-index: ${zIndex};`;
+        getChildWrapperStyle: function () {
+            var _this = this;
+            var _a = this.data, zIndex = _a.zIndex, direction = _a.direction;
+            return this.getRect('.van-dropdown-menu').then(function (rect) {
+                var _a = rect.top, top = _a === void 0 ? 0 : _a, _b = rect.bottom, bottom = _b === void 0 ? 0 : _b;
+                var offset = direction === 'down' ? bottom : _this.windowHeight - top;
+                var wrapperStyle = "z-index: " + zIndex + ";";
                 if (direction === 'down') {
-                    wrapperStyle += `top: ${addUnit(offset)};`;
+                    wrapperStyle += "top: " + utils_1.addUnit(offset) + ";";
                 }
                 else {
-                    wrapperStyle += `bottom: ${addUnit(offset)};`;
+                    wrapperStyle += "bottom: " + utils_1.addUnit(offset) + ";";
                 }
                 return wrapperStyle;
             });
         },
-        onTitleTap(event) {
-            const { index } = event.currentTarget.dataset;
-            const child = this.children[index];
+        onTitleTap: function (event) {
+            var _this = this;
+            var index = event.currentTarget.dataset.index;
+            var child = this.children[index];
             if (!child.data.disabled) {
-                ARRAY.forEach(menuItem => {
+                ARRAY.forEach(function (menuItem) {
                     if (menuItem &&
                         menuItem.data.closeOnClickOutside &&
-                        menuItem !== this) {
+                        menuItem !== _this) {
                         menuItem.close();
                     }
                 });

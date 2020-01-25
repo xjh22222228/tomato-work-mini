@@ -1,15 +1,18 @@
-import { VantComponent } from '../common/component';
-import { touch } from '../mixins/touch';
-import { range } from '../common/utils';
-const THRESHOLD = 0.3;
-let ARRAY = [];
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var touch_1 = require("../mixins/touch");
+var utils_1 = require("../common/utils");
+var THRESHOLD = 0.3;
+var ARRAY = [];
+component_1.VantComponent({
     props: {
         disabled: Boolean,
         leftWidth: {
             type: Number,
             value: 0,
-            observer(leftWidth = 0) {
+            observer: function (leftWidth) {
+                if (leftWidth === void 0) { leftWidth = 0; }
                 if (this.offset > 0) {
                     this.swipeMove(leftWidth);
                 }
@@ -18,7 +21,8 @@ VantComponent({
         rightWidth: {
             type: Number,
             value: 0,
-            observer(rightWidth = 0) {
+            observer: function (rightWidth) {
+                if (rightWidth === void 0) { rightWidth = 0; }
                 if (this.offset < 0) {
                     this.swipeMove(-rightWidth);
                 }
@@ -30,48 +34,45 @@ VantComponent({
             value: ''
         }
     },
-    mixins: [touch],
+    mixins: [touch_1.touch],
     data: {
         catchMove: false
     },
-    created() {
+    created: function () {
         this.offset = 0;
         ARRAY.push(this);
     },
-    destroyed() {
-        ARRAY = ARRAY.filter(item => item !== this);
+    destroyed: function () {
+        var _this = this;
+        ARRAY = ARRAY.filter(function (item) { return item !== _this; });
     },
     methods: {
-        open(position) {
-            const { leftWidth, rightWidth } = this.data;
-            const offset = position === 'left' ? leftWidth : -rightWidth;
+        open: function (position) {
+            var _a = this.data, leftWidth = _a.leftWidth, rightWidth = _a.rightWidth;
+            var offset = position === 'left' ? leftWidth : -rightWidth;
             this.swipeMove(offset);
             this.$emit('open', {
-                position,
+                position: position,
                 name: this.data.name
             });
         },
-        close() {
+        close: function () {
             this.swipeMove(0);
         },
-        swipeMove(offset = 0) {
-            this.offset = range(offset, -this.data.rightWidth, this.data.leftWidth);
-            const transform = `translate3d(${this.offset}px, 0, 0)`;
-            const transition = this.dragging
+        swipeMove: function (offset) {
+            if (offset === void 0) { offset = 0; }
+            this.offset = utils_1.range(offset, -this.data.rightWidth, this.data.leftWidth);
+            var transform = "translate3d(" + this.offset + "px, 0, 0)";
+            var transition = this.dragging
                 ? 'none'
                 : 'transform .6s cubic-bezier(0.18, 0.89, 0.32, 1)';
             this.setData({
-                wrapperStyle: `
-        -webkit-transform: ${transform};
-        -webkit-transition: ${transition};
-        transform: ${transform};
-        transition: ${transition};
-      `
+                wrapperStyle: "\n        -webkit-transform: " + transform + ";\n        -webkit-transition: " + transition + ";\n        transform: " + transform + ";\n        transition: " + transition + ";\n      "
             });
         },
-        swipeLeaveTransition() {
-            const { leftWidth, rightWidth } = this.data;
-            const { offset } = this;
+        swipeLeaveTransition: function () {
+            var _a = this.data, leftWidth = _a.leftWidth, rightWidth = _a.rightWidth;
+            var offset = this.offset;
             if (rightWidth > 0 && -offset > rightWidth * THRESHOLD) {
                 this.open('right');
             }
@@ -83,15 +84,16 @@ VantComponent({
             }
             this.setData({ catchMove: false });
         },
-        startDrag(event) {
+        startDrag: function (event) {
             if (this.data.disabled) {
                 return;
             }
             this.startOffset = this.offset;
             this.touchStart(event);
         },
-        noop() { },
-        onDrag(event) {
+        noop: function () { },
+        onDrag: function (event) {
+            var _this = this;
             if (this.data.disabled) {
                 return;
             }
@@ -100,26 +102,26 @@ VantComponent({
                 return;
             }
             this.dragging = true;
-            ARRAY.filter(item => item !== this).forEach(item => item.close());
+            ARRAY.filter(function (item) { return item !== _this; }).forEach(function (item) { return item.close(); });
             this.setData({ catchMove: true });
             this.swipeMove(this.startOffset + this.deltaX);
         },
-        endDrag() {
+        endDrag: function () {
             if (this.data.disabled) {
                 return;
             }
             this.dragging = false;
             this.swipeLeaveTransition();
         },
-        onClick(event) {
-            const { key: position = 'outside' } = event.currentTarget.dataset;
+        onClick: function (event) {
+            var _a = event.currentTarget.dataset.key, position = _a === void 0 ? 'outside' : _a;
             this.$emit('click', position);
             if (!this.offset) {
                 return;
             }
             if (this.data.asyncClose) {
                 this.$emit('close', {
-                    position,
+                    position: position,
                     instance: this,
                     name: this.data.name
                 });

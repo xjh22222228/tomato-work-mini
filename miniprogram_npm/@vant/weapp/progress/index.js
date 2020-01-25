@@ -1,6 +1,8 @@
-import { VantComponent } from '../common/component';
-import { BLUE } from '../common/color';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var color_1 = require("../common/color");
+component_1.VantComponent({
     props: {
         inactive: Boolean,
         percentage: Number,
@@ -13,7 +15,7 @@ VantComponent({
         },
         color: {
             type: String,
-            value: BLUE
+            value: color_1.BLUE
         },
         textColor: {
             type: String,

@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     classes: [
         'bar-class',
         'price-class',
@@ -40,17 +42,17 @@ VantComponent({
         }
     },
     methods: {
-        updatePrice() {
-            const { price, decimalLength } = this.data;
+        updatePrice: function () {
+            var _a = this.data, price = _a.price, decimalLength = _a.decimalLength;
             this.setData({
                 hasPrice: typeof price === 'number',
                 priceStr: (price / 100).toFixed(decimalLength)
             });
         },
-        updateTip() {
+        updateTip: function () {
             this.setData({ hasTip: typeof this.data.tip === 'string' });
         },
-        onSubmit(event) {
+        onSubmit: function (event) {
             this.$emit('submit', event.detail);
         }
     }

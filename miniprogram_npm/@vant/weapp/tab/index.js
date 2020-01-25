@@ -1,21 +1,38 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     relation: {
         name: 'tabs',
         type: 'ancestor',
-        linked(target) {
+        linked: function (target) {
             this.parent = target;
         },
-        unlinked() {
+        unlinked: function () {
             this.parent = null;
         }
     },
     props: {
-        dot: Boolean,
-        info: null,
-        title: String,
-        disabled: Boolean,
-        titleStyle: String,
+        dot: {
+            type: Boolean,
+            observer: 'update'
+        },
+        info: {
+            type: null,
+            observer: 'update'
+        },
+        title: {
+            type: String,
+            observer: 'update'
+        },
+        disabled: {
+            type: Boolean,
+            observer: 'update'
+        },
+        titleStyle: {
+            type: String,
+            observer: 'update'
+        },
         name: {
             type: [Number, String],
             value: '',
@@ -24,30 +41,23 @@ VantComponent({
     data: {
         active: false
     },
-    watch: {
-        title: 'update',
-        disabled: 'update',
-        dot: 'update',
-        info: 'update',
-        titleStyle: 'update'
-    },
     methods: {
-        getComputedName() {
+        getComputedName: function () {
             if (this.data.name !== '') {
                 return this.data.name;
             }
             return this.index;
         },
-        updateRender(active, parent) {
-            const { data: parentData } = parent;
+        updateRender: function (active, parent) {
+            var parentData = parent.data;
             this.inited = this.inited || active;
             this.setData({
-                active,
+                active: active,
                 shouldRender: this.inited || !parentData.lazyRender,
                 shouldShow: active || parentData.animated
             });
         },
-        update() {
+        update: function () {
             if (this.parent) {
                 this.parent.updateTabs();
             }

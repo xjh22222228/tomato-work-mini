@@ -1,14 +1,16 @@
-import { VantComponent } from '../common/component';
-import { addUnit } from '../common/utils';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var utils_1 = require("../common/utils");
+component_1.VantComponent({
     relation: {
         name: 'grid-item',
         type: 'descendant',
-        linked(child) {
+        linked: function (child) {
             this.children.push(child);
         },
-        unlinked(child) {
-            this.children = this.children.filter((item) => item !== child);
+        unlinked: function (child) {
+            this.children = this.children.filter(function (item) { return item !== child; });
         }
     },
     props: {
@@ -41,20 +43,20 @@ VantComponent({
             observer: 'updateChildren'
         }
     },
-    beforeCreate() {
+    beforeCreate: function () {
         this.children = [];
     },
-    created() {
-        const { gutter } = this.data;
+    created: function () {
+        var gutter = this.data.gutter;
         if (gutter) {
             this.setData({
-                style: `padding-left: ${addUnit(gutter)}`
+                style: "padding-left: " + utils_1.addUnit(gutter)
             });
         }
     },
     methods: {
-        updateChildren() {
-            this.children.forEach((child) => {
+        updateChildren: function () {
+            this.children.forEach(function (child) {
                 child.updateStyle();
             });
         }

@@ -1,16 +1,18 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     relation: {
         type: 'descendant',
         name: 'goods-action-button',
-        linked(child) {
+        linked: function (child) {
             this.children.push(child);
         },
-        unlinked(child) {
-            this.children = this.children.filter((item) => item !== child);
+        unlinked: function (child) {
+            this.children = this.children.filter(function (item) { return item !== child; });
         }
     },
-    beforeCreate() {
+    beforeCreate: function () {
         this.children = [];
     },
     props: {

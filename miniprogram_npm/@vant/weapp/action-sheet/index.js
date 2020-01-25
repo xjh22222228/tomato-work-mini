@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     props: {
         show: Boolean,
         title: String,
@@ -35,9 +37,9 @@ VantComponent({
         }
     },
     methods: {
-        onSelect(event) {
-            const { index } = event.currentTarget.dataset;
-            const item = this.data.actions[index];
+        onSelect: function (event) {
+            var index = event.currentTarget.dataset.index;
+            var item = this.data.actions[index];
             if (item && !item.disabled && !item.loading) {
                 this.$emit('select', item);
                 if (this.data.closeOnClickAction) {
@@ -45,13 +47,13 @@ VantComponent({
                 }
             }
         },
-        onCancel() {
+        onCancel: function () {
             this.$emit('cancel');
         },
-        onClose() {
+        onClose: function () {
             this.$emit('close');
         },
-        onClickOverlay() {
+        onClickOverlay: function () {
             this.$emit('click-overlay');
             this.onClose();
         }

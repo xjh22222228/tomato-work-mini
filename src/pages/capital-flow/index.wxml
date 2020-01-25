@@ -48,8 +48,8 @@
             <text class="van-cell-text">{{ item.name }}</text>
           </view>
           <view slot="label">
-            <view>日期：{{ item.__date__ }} {{ item.__week__ }}</view>
-            <view wx:if="{{ item.remarks }}">备注：{{ item.remarks }}</view>
+            <view>入账时间：{{ item.__date__ }} {{ item.__week__ }}</view>
+            <view wx:if="{{ item.remarks }}">备注信息：{{ item.remarks }}</view>
           </view>
         </van-cell>
         <van-button 

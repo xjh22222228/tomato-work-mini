@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     classes: ['avatar-class', 'title-class', 'row-class'],
     props: {
         row: {
@@ -31,7 +33,7 @@ VantComponent({
         rowWidth: {
             type: null,
             value: '100%',
-            observer(val) {
+            observer: function (val) {
                 this.setData({ isArray: val instanceof Array });
             }
         }

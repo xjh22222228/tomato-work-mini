@@ -33,7 +33,7 @@ export function serviceCreateCapitalFlowType(data) {
 export async function serviceGetCapitalFlow(params) {
   const result = await http.get(api.capitalFlow, params);
   result.rows = result.rows.map(item => {
-    item.__date__ = dayjs(item.date).format('YYYY-MM-DD HH:mm');
+    item.__date__ = dayjs(item.date).format('YYYY-MM-DD');
     item.__week__ = getWeek(item.createdAt);
     item.__statusText__ = item.type === 1 ? '收入' : '支出';
     item.__tagType__ = item.type === 1 ? 'primary' : 'danger';

@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     props: {
         dot: Boolean,
         info: null,
@@ -12,7 +14,7 @@ VantComponent({
         },
         name: {
             type: String,
-            observer(val) {
+            observer: function (val) {
                 this.setData({
                     isImageName: val.indexOf('/') !== -1
                 });
@@ -20,7 +22,7 @@ VantComponent({
         }
     },
     methods: {
-        onClick() {
+        onClick: function () {
             this.$emit('click');
         }
     }

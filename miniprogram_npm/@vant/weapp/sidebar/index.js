@@ -1,14 +1,16 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     relation: {
         name: 'sidebar-item',
         type: 'descendant',
-        linked(target) {
+        linked: function (target) {
             this.children.push(target);
             this.setActive(this.data.activeKey);
         },
-        unlinked(target) {
-            this.children = this.children.filter((item) => item !== target);
+        unlinked: function (target) {
+            this.children = this.children.filter(function (item) { return item !== target; });
             this.setActive(this.data.activeKey);
         }
     },
@@ -19,18 +21,18 @@ VantComponent({
             observer: 'setActive'
         }
     },
-    beforeCreate() {
+    beforeCreate: function () {
         this.children = [];
         this.currentActive = -1;
     },
     methods: {
-        setActive(activeKey) {
-            const { children, currentActive } = this;
+        setActive: function (activeKey) {
+            var _a = this, children = _a.children, currentActive = _a.currentActive;
             if (!children.length) {
                 return Promise.resolve();
             }
             this.currentActive = activeKey;
-            const stack = [];
+            var stack = [];
             if (currentActive !== activeKey && children[currentActive]) {
                 stack.push(children[currentActive].setActive(false));
             }

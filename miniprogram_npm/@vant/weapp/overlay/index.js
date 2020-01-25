@@ -1,5 +1,7 @@
-import { VantComponent } from '../common/component';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+component_1.VantComponent({
     props: {
         show: Boolean,
         customStyle: String,
@@ -13,10 +15,10 @@ VantComponent({
         }
     },
     methods: {
-        onClick() {
+        onClick: function () {
             this.$emit('click');
         },
         // for prevent touchmove
-        noop() { }
+        noop: function () { }
     }
 });

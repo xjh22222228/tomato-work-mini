@@ -1,15 +1,17 @@
-import { link } from '../mixins/link';
-import { VantComponent } from '../common/component';
-import { addUnit } from '../common/utils';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var link_1 = require("../mixins/link");
+var component_1 = require("../common/component");
+var utils_1 = require("../common/utils");
+component_1.VantComponent({
     relation: {
         name: 'grid',
         type: 'ancestor',
-        linked(parent) {
+        linked: function (parent) {
             this.parent = parent;
         }
     },
-    mixins: [link],
+    mixins: [link_1.link],
     props: {
         icon: String,
         dot: Boolean,
@@ -17,50 +19,46 @@ VantComponent({
         text: String,
         useSlot: Boolean
     },
-    mounted() {
+    mounted: function () {
         this.updateStyle();
     },
     methods: {
-        updateStyle() {
+        updateStyle: function () {
             if (!this.parent) {
                 return;
             }
-            const { data, children } = this.parent;
-            const { columnNum, border, square, gutter, clickable, center } = data;
-            const width = `${100 / columnNum}%`;
-            const styleWrapper = [];
-            styleWrapper.push(`width: ${width}`);
+            var _a = this.parent, data = _a.data, children = _a.children;
+            var columnNum = data.columnNum, border = data.border, square = data.square, gutter = data.gutter, clickable = data.clickable, center = data.center;
+            var width = 100 / columnNum + "%";
+            var styleWrapper = [];
+            styleWrapper.push("width: " + width);
             if (square) {
-                styleWrapper.push(`padding-top: ${width}`);
+                styleWrapper.push("padding-top: " + width);
             }
             if (gutter) {
-                const gutterValue = addUnit(gutter);
-                styleWrapper.push(`padding-right: ${gutterValue}`);
-                const index = children.indexOf(this);
+                var gutterValue = utils_1.addUnit(gutter);
+                styleWrapper.push("padding-right: " + gutterValue);
+                var index = children.indexOf(this);
                 if (index >= columnNum) {
-                    styleWrapper.push(`margin-top: ${gutterValue}`);
+                    styleWrapper.push("margin-top: " + gutterValue);
                 }
             }
-            let contentStyle = '';
+            var contentStyle = '';
             if (square && gutter) {
-                const gutterValue = addUnit(gutter);
-                contentStyle = `
-          right: ${gutterValue};
-          bottom: ${gutterValue};
-          height: auto;
-        `;
+                var gutterValue = utils_1.addUnit(gutter);
+                contentStyle = "\n          right: " + gutterValue + ";\n          bottom: " + gutterValue + ";\n          height: auto;\n        ";
             }
             this.setData({
                 style: styleWrapper.join('; '),
-                contentStyle,
-                center,
-                border,
-                square,
-                gutter,
-                clickable
+                contentStyle: contentStyle,
+                center: center,
+                border: border,
+                square: square,
+                gutter: gutter,
+                clickable: clickable
             });
         },
-        onClick() {
+        onClick: function () {
             this.$emit('click');
             this.jumpLink();
         }

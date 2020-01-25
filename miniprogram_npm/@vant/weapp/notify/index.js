@@ -1,6 +1,8 @@
-import { VantComponent } from '../common/component';
-import { WHITE } from '../common/color';
-VantComponent({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var component_1 = require("../common/component");
+var color_1 = require("../common/color");
+component_1.VantComponent({
     props: {
         message: String,
         background: String,
@@ -10,7 +12,7 @@ VantComponent({
         },
         color: {
             type: String,
-            value: WHITE
+            value: color_1.WHITE
         },
         duration: {
             type: Number,
@@ -25,30 +27,31 @@ VantComponent({
             value: false
         }
     },
-    created() {
-        const { statusBarHeight } = wx.getSystemInfoSync();
-        this.setData({ statusBarHeight });
+    created: function () {
+        var statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
+        this.setData({ statusBarHeight: statusBarHeight });
     },
     methods: {
-        show() {
-            const { duration, onOpened } = this.data;
+        show: function () {
+            var _this = this;
+            var _a = this.data, duration = _a.duration, onOpened = _a.onOpened;
             clearTimeout(this.timer);
             this.setData({ show: true });
             wx.nextTick(onOpened);
             if (duration > 0 && duration !== Infinity) {
-                this.timer = setTimeout(() => {
-                    this.hide();
+                this.timer = setTimeout(function () {
+                    _this.hide();
                 }, duration);
             }
         },
-        hide() {
-            const { onClose } = this.data;
+        hide: function () {
+            var onClose = this.data.onClose;
             clearTimeout(this.timer);
             this.setData({ show: false });
             wx.nextTick(onClose);
         },
-        onTap(event) {
-            const { onClick } = this.data;
+        onTap: function (event) {
+            var onClick = this.data.onClick;
             if (onClick) {
                 onClick(event.detail);
             }
