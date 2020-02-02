@@ -4,24 +4,12 @@ import { serviceGetReminder, serviceDeleteReminder } from '../../services/remind
 
 Page(merge(pullUpPagination, {
   data: {
-    startDate: null,
-    endDate: null,
     currentData: null,
     popupShow: false
   },
-  getDateValue(e) {
-    const { startDateTimestamp, endDateTimestamp } = e.detail;
-    this.setData({
-      startDate: startDateTimestamp,
-      endDate: endDateTimestamp
-    });
-    this.$resetData();
-  },
   getData(params) {
-    const { startDate, endDate } = this.data;
     return serviceGetReminder({
-      startDate,
-      endDate,
+      sort: 'type-desc',
       ...params
     });
   },

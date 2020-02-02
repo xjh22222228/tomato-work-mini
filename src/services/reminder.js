@@ -12,8 +12,7 @@ export async function serviceGetReminder(data) {
   const res = await http.get(api.reminder, data);
   res.rows = res.rows.map(item => {
     item.__date__ = dayjs(item.date).format('YYYY-MM-DD HH:mm');
-    item.__statusText__ = item.type === 1 ? '待提醒' : '已提醒';
-    item.__tagType__ = item.type === 1 ? 'danger' : 'success';
+    item.__hasChecked__ = item.type === 1;
     return item;
   });
   return res;

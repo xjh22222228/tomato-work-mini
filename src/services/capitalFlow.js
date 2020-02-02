@@ -33,12 +33,14 @@ export function serviceCreateCapitalFlowType(data) {
 export async function serviceGetCapitalFlow(params) {
   const result = await http.get(api.capitalFlow, params);
   result.rows = result.rows.map(item => {
-    item.__date__ = dayjs(item.date).format('YYYY-MM-DD');
-    item.__week__ = getWeek(item.createdAt);
+    const date = dayjs(item.date).format('YYYY-MM-DD');
+    const today = dayjs().format('YYYY-MM-DD');
+    item.__date__ = date;
+    item.__week__ = date === today ? '今天' : getWeek(item.createdAt);
     item.__statusText__ = item.type === 1 ? '收入' : '支出';
     item.__tagType__ = item.type === 1 ? 'primary' : 'danger';
     item.__symbol__ = item.type === 1 ? '+' : '-';
-    item.__priceColor__ == item.type === 1 ? '#ffa500' : '#000';
+    item.__priceColor__ = item.type === 1 ? '#f50' : '#000';
     return item;
   });
   return result;

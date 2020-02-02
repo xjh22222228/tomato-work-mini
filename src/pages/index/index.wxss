@@ -1,7 +1,6 @@
 @import "../../assets/styles/base-class.wxss";
 
 .nav {
-  margin-top: 30px;
   text-align: center;
 }
 

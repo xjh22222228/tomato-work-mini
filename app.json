@@ -8,8 +8,7 @@
     "src/pages/today-task/index",
     "src/pages/todo-list/index",
     "src/pages/capital-flow/index",
-    "src/pages/my/index/index",
-    "src/pages/my/message/index"
+    "src/pages/my/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +28,12 @@
         "text": "首页",
         "iconPath": "src/assets/img/tabbar/index.png",
         "selectedIconPath": "src/assets/img/tabbar/index-selected.png"
+      },
+      {
+        "pagePath": "src/pages/message/index",
+        "text": "公告",
+        "iconPath": "src/assets/img/tabbar/message.png",
+        "selectedIconPath": "src/assets/img/tabbar/message-selected.png"
       },
       {
         "pagePath": "src/pages/my/index/index",

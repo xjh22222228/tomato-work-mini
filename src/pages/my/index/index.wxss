@@ -1,3 +1,7 @@
+page {
+  background: #f2f2f2;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -13,19 +17,13 @@
   height: 25px !important;
 }
 
-.info .avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #f2f2f2;
-}
-
-.info .avatar .image {
-  width: 100%;
-  height: 100%;
-}
-
 .info .nick-name {
   margin-top: 10px;
+}
+
+.logout-button {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
 }

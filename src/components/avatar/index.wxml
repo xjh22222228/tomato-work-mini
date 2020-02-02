@@ -1,0 +1,10 @@
+<view class="avatar custom-class">
+  <image 
+    src="{{ url }}" 
+    class="image" 
+    wx:if="{{ !isError }}" 
+    bind:error="onError"
+  >
+  </image>
+  <open-data type="userAvatarUrl" class="image" wx:else></open-data>
+</view>

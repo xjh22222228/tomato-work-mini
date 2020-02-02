@@ -19,5 +19,6 @@
       </van-col>
     </van-row>
   </view>
+
 </view>
 <auth-login id="auth-login"></auth-login>

@@ -29,29 +29,21 @@
   <block wx:if="{{ data.length > 0 }}">
     <van-cell-group custom-class="cell-group">
       <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
-        <van-cell 
-          value="{{ item.__symbol__ + item.price }}"
-          use-label-slot
-          is-link
-          value-class="cell-value-class"
-          arrow-direction="none"
-          bind:click="handleClickCell"
+        <view 
+          class="item" 
+          hover-class="touch-active" 
+          hover-stay-time="{{ 0 }}"
+          bind:tap="handleClickCell" 
           data-detail="{{ item }}"
         >
-          <view slot="title">
-            <van-tag 
-              type="{{ item.__tagType__ }}" 
-              style="margin-right: 5px;"
-            >
-              {{ item.__statusText__ }}
-            </van-tag>
-            <text class="van-cell-text">{{ item.name }}</text>
+          <view class="top">
+            <view class="title">{{ item.name }}</view>
+            <view class="price" style="color: {{ item.__priceColor__ }}">{{ item.__symbol__ + item.price }}</view>
           </view>
-          <view slot="label">
-            <view>入账时间：{{ item.__date__ }} {{ item.__week__ }}</view>
-            <view wx:if="{{ item.remarks }}">备注信息：{{ item.remarks }}</view>
-          </view>
-        </van-cell>
+          <view class="remarks">{{ item.remarks }}</view>
+          <view class="date">{{ item.__date__ }} {{ item.__week__ }}</view>
+        </view>
+
         <van-button 
           slot="right"
           type="danger" 

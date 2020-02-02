@@ -1,28 +1,15 @@
 <view>
-  <range-picker-date bind:confirm="getDateValue" />
-
   <block wx:if="{{ data.length > 0 }}">
     <van-cell-group custom-class="cell-group">
       <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
-        <van-cell 
-          value="{{ item.__date__ }}"
-          use-label-slot
-          is-link
-          value-class="cell-value-class"
-          arrow-direction="none"
-          bind:click="handleClickCell"
-          data-detail="{{ item }}"
-        >
-          <view slot="title">
-            <van-tag 
-              type="{{ item.__tagType__ }}" 
-              style="margin-right: 5px;"
-            >
-              {{ item.__statusText__ }}
-            </van-tag>
+        <view class="item" hover-class="touch-active" hover-stay-time="{{ 0 }}">
+          <view class="top">
+            <view class="date">{{ item.__date__ }}</view>
+            <van-switch checked="{{ item.__hasChecked__ }}" />
           </view>
-          <view slot="label">备注：{{ item.content }}</view>
-        </van-cell>
+          <view class="content">{{ item.content }}</view>
+        </view>
+
         <van-button 
           slot="right"
           type="danger" 

@@ -28,7 +28,7 @@
 
       <van-field
         value="{{ price }}"
-        label="金额:"
+        label="入账金额:"
         type="digit"
         placeholder="请输入金额"
         border="{{ false }}"
@@ -36,11 +36,11 @@
         data-field-name="price"
         bind:change="onInputChange"
         focus
-        title-width="50px"
+        title-width="68px"
       />
       <van-field
         value="{{ remarks }}"
-        label="备注:"
+        label="备注信息:"
         placeholder="添加备注信息"
         autosize
         clearable
@@ -48,7 +48,7 @@
         border="{{ false }}"
         data-field-name="remarks"
         bind:change="onInputChange"
-        title-width="50px"
+        title-width="68px"
       />
       
       <van-button 
@@ -62,13 +62,8 @@
       </van-button>
     </view>
 
-    <view class="fixed-bottom">
-      <image 
-        src="/src/assets/img/common/delete.svg" 
-        class="icon"
-        bind:tap="handleDeleteButton"
-      >
-      </image>
+    <view class="fixed-bottom" bind:tap="handleDeleteButton" wx:if="{{ data }}">
+      <van-button block custom-style="width: 100%; color: #f50">删除</van-button>
     </view>
 
     <van-dialog id="van-dialog" />

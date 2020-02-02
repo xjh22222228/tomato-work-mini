@@ -1,8 +1,6 @@
 <view class="my">
   <view class="info">
-    <view class="avatar">
-      <image src="{{ userInfo.avatarUrl }}" class="image"></image>
-    </view>
+    <avatar url="{{ userInfo.avatarUrl }}" />
     <view class="nick-name">{{ userInfo.loginName }}</view>
   </view>
 
@@ -19,14 +17,14 @@
     </van-cell-group>
   </view>
 
-  <view style="margin: 30px 10px;">
+  <view class="logout-button">
     <van-button 
       type="default"
       block
       custom-style="width: 100%;"
       bind:click="handleLogout"
     >
-      退出登录
+      退出我的账号
     </van-button>
   </view>
 </view>

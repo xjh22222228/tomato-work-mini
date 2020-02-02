@@ -35,12 +35,7 @@ Page({
         imageUrl: '/src/assets/img/index/reminder.png',
         name: '提醒事项',
         url: REMINDER_URL
-      },
-      // {
-      //   imageUrl: '/src/assets/img/index/message.png',
-      //   name: '消息中心',
-      //   url: MESSAGE_URL
-      // }
+      }
     ]
   },
   onShow() {
