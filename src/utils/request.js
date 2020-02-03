@@ -114,8 +114,3 @@ export const post = function (url, data, config) {
 export const put = function (url, data, config) {
   return request({ url, data, method: 'PUT', ...config });
 }
-
-request.get = get;
-request.del = del;
-request.post = post;
-request.put = put;

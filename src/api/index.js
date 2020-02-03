@@ -1,15 +1,15 @@
 
 const API = {
-  // 账号密码登录
-  login: '/passport/local',
-  // 退出登录
-  logout: '/logout',
-  // 获取系统信息
-  getSystemInfo: '/system/info',
-  // 更新用户
-  updateUser: '/user/update',
-  // 获取用户配置
-  getUserConfig: '/userConfig',
+  user: {
+    // 账号密码登录
+    login: '/passport/local',
+    // 退出登录
+    logout: '/logout',
+    // 更新用户
+    update: '/user/update',
+    // 获取用户配置
+    getConfig: '/userConfig'
+  },
   // 提醒事项
   reminder: '/reminder',
   // 今日待办
