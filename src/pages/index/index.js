@@ -21,11 +21,11 @@ Page({
         name: '我的备忘',
         url: MEMORANDUM_URL
       },
-      // {
-      //   imageUrl: '/src/assets/img/index/todo-list.png',
-      //   name: '活动清单',
-      //   url: TODO_LIST_URL
-      // },
+      {
+        imageUrl: '/src/assets/img/index/todo-list.png',
+        name: '活动清单',
+        url: TODO_LIST_URL
+      },
       // {
       //   imageUrl: '/src/assets/img/index/today.png',
       //   name: '今日待办',

@@ -1,3 +1,38 @@
 <view>
-  
+  <block wx:if="{{ data.length > 0 }}">
+    <van-cell-group wx:for="{{ data }}" wx:key="id">
+      <van-swipe-cell right-width="{{ 65 }}">
+        <view 
+          class="item" 
+          hover-class="touch-active"
+          hover-stay-time="{{ 0 }}"
+        >
+          <view class="left">
+            <van-checkbox 
+              value="{{ item.status !== 1 }}" 
+              shape="square"
+              bind:change="onCheckboxChange"
+              data-detail="{{ item }}"
+            >
+              {{ item.content }}
+            </van-checkbox>
+          </view>
+          <view class="date">{{ item.__date__ }}</view>
+        </view>
+
+        <van-button 
+          slot="right"
+          type="danger" 
+          custom-style="height: 100%; width: 65px;"
+          bind:click="onDeleteClick"
+          data-id="{{ item.id }}"
+        >
+          删除
+        </van-button>
+      </van-swipe-cell>
+    </van-cell-group>
+  </block>
+  <no-data wx:else />
 </view>
+
+<floating-action-button />

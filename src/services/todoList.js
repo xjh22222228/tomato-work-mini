@@ -1,4 +1,5 @@
 import api from '../api/index';
+import dayjs from 'dayjs';
 import { get, post, del, put } from '../utils/request';
 
 // 创建
@@ -7,13 +8,19 @@ export function serviceCreateTodoList(data) {
 }
 
 // 查询
-export function serviceGetTodoList(data) {
-  return get(api.todoList, data);
+export async function serviceGetTodoList(data, config) {
+  const res = await get(api.todoList, data, config);
+  res.rows = res.rows.map(item => {
+    item.__date__ = dayjs(item.date).format('M月D日');
+    return item;
+  });
+
+  return res;
 }
 
 // 删除
 export function serviceDeleteTodoList(id) {
-  return del(`${api.todoList}/${id}`, { successAlert: true });
+  return del(`${api.todoList}/${id}`);
 }
 
 // 更新

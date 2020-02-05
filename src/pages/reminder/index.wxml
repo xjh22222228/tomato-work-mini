@@ -29,17 +29,7 @@
     loading="{{ pagination.loading }}"
   />
 
-  <view class="create-button">
-    <van-button 
-      type="info"
-      block
-      bind:click="handleCreate"
-      custom-style="width: 100%;"
-      bind:click="onClickCreateButton"
-    >
-      新增一项
-    </van-button>
-  </view>
+  <floating-action-button bind:click="onClickCreateButton" />
 </view>
 
 <create-reminder 

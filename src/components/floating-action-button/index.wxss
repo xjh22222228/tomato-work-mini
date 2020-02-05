@@ -1,0 +1,28 @@
+@import "../../assets/iconfont/iconfont.wxss";
+
+.float-button {
+  z-index: 7;
+  position: fixed;
+  right: 10px;
+  bottom: 25px;
+  width: 50px !important;
+  height: 50px !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ccc;
+  border-color: transparent !important;
+  background: rgb(106, 128, 216) !important;
+  color: #fff !important;
+  transition: .1s linear;
+}
+
+.float-button .iconfont {
+  font-size: 20px;
+}
+
+.float-button.float-button-hover {
+  transform: scale(1.2);
+}

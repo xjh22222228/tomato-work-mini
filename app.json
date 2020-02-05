@@ -51,6 +51,7 @@
     "login": "/src/components/login/index",
     "range-picker-date": "/src/components/range-picker-date/index",
     "auth-login": "/src/components/auth-login/index",
+    "floating-action-button": "/src/components/floating-action-button/index",
     
     "van-button": "/miniprogram_npm/@vant/weapp/button/index",
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",

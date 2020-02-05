@@ -111,6 +111,12 @@
 					"pathName": "src/pages/memorandum/editor/index",
 					"query": "id=81980b29-0fed-43bd-8d18-d5a354a2b77b",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动清单",
+					"pathName": "src/pages/todo-list/index",
+					"scene": null
 				}
 			]
 		}

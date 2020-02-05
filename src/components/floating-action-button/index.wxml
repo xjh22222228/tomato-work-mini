@@ -1,0 +1,8 @@
+<button 
+  bind:tap="onClick" 
+  class="float-button {{ custom-class }}" 
+  hover-class="float-button-hover"
+  plain
+>
+  <text class="iconfont iconxinzeng"></text>
+</button>

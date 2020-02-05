@@ -63,16 +63,7 @@
     loading="{{ pagination.loading }}"
   />
 
-  <view class="create-button">
-    <van-button 
-      type="info"
-      block
-      custom-style="width: 100%;"
-      bind:click="handleToggleCreatePopupShow"
-    >
-      新增一笔
-    </van-button>
-  </view>
+  <floating-action-button bind:click="handleToggleCreatePopupShow" />
 </view>
 
 <create-capital-flow 

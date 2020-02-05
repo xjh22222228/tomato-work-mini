@@ -39,7 +39,7 @@ export async function serviceGetCapitalFlow(params) {
     item.__statusText__ = item.type === 1 ? '收入' : '支出';
     item.__tagType__ = item.type === 1 ? 'primary' : 'danger';
     item.__symbol__ = item.type === 1 ? '+' : '-';
-    item.__priceColor__ = item.type !== 1 ? '#f50' : '#000';
+    item.__priceColor__ = item.type === 1 ? '#f50' : '#000';
     return item;
   });
   return result;

@@ -89,11 +89,11 @@ export default {
   /**
    * 刷新数据, 保留现有分页状态
    */
-  $refreshData() {
+  $refreshData(config) {
     const { pagination } = this.data;
     this.$getData({
       pageNo: 0,
       pageSize: pagination.pageNo * pageSize
-    }, null, true);
+    }, config, true);
   }
 }

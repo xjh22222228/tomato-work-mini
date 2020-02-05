@@ -18,6 +18,13 @@
       "font_class": "shanchu",
       "unicode": "e611",
       "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "12875297",
+      "name": "新增",
+      "font_class": "xinzeng",
+      "unicode": "e617",
+      "unicode_decimal": 58903
     }
   ]
 }
