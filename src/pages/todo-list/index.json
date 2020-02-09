@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "活动清单",
   "usingComponents": {
+    "tm-create": "./components/create/index"
   }
 }

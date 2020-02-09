@@ -33,5 +33,8 @@ Page(merge(pullUpPagination, {
     .then(() => {
       this.$refreshData();
     });
+  },
+  onClickAction() {
+    this.setData({ popupShow: true });
   }
 }))

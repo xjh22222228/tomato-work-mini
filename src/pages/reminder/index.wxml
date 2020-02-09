@@ -32,7 +32,7 @@
   <floating-action-button bind:click="onClickCreateButton" />
 </view>
 
-<create-reminder 
+<tm-create 
   show="{{ popupShow }}" 
   data="{{ currentData }}"
   bind:close="onPopupClose"

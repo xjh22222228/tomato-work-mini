@@ -35,4 +35,5 @@
   <no-data wx:else />
 </view>
 
-<floating-action-button />
+<floating-action-button bind:click="onClickAction" />
+<tm-create show="{{ popupShow }}" />

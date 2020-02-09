@@ -1,0 +1,51 @@
+<van-popup
+  show="{{ show }}"
+  closeable
+  position="bottom"
+  custom-class="popup"
+  bind:close="onClose"
+>
+  <view class="form">
+    <view class="date-wrapper">
+      <picker 
+        value="{{ date }}" 
+        class="date-picker" 
+        mode="date" 
+        bind:change="onDateChange"
+      >
+        <text class="date">{{ date }}</text>
+      </picker>
+      <picker 
+        value="{{ time }}" 
+        class="date-picker" 
+        mode="time" 
+        bind:change="onTimeChange"
+      >
+        <text class="date">{{ time }}</text>
+      </picker>
+    </view>
+
+    <van-field
+      value="{{ content }}"
+      label="提醒内容:"
+      placeholder="请输入内容"
+      autosize
+      clearable
+      maxlength="{{ 300 }}"
+      border="{{ false }}"
+      data-field-name="content"
+      bind:change="onInputChange"
+      title-width="70px"
+    />
+    
+    <van-button 
+      type="info" 
+      bind:click="handleSubmit"
+      block
+      custom-style="width: 100%; margin-top: 15px;"
+      loading="{{ confirmLoading }}"
+    >
+      {{ data ? '更新' : '新增' }}
+    </van-button>
+  </view>
+</van-popup>
