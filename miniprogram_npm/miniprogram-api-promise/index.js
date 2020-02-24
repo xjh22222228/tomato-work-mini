@@ -4,11 +4,11 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { __MODS__[modId].m.exports.__proto__ = m.exports.__proto__; Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; var desp = Object.getOwnPropertyDescriptor(m.exports, k); if(desp && desp.configurable) Object.defineProperty(m.exports, k, { set: function(val) { __MODS__[modId].m.exports[k] = val; }, get: function() { return __MODS__[modId].m.exports[k]; } }); }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1581225955199, function(require, module, exports) {
+__DEFINE__(1582448261151, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });var __TEMP__ = require('./promise');Object.defineProperty(exports, 'promisify', { enumerable: true, configurable: true, get: function() { return __TEMP__.promisify; } });Object.defineProperty(exports, 'promisifyAll', { enumerable: true, configurable: true, get: function() { return __TEMP__.promisifyAll; } });
 
-}, function(modId) {var map = {"./promise":1581225955200}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581225955200, function(require, module, exports) {
+}, function(modId) {var map = {"./promise":1582448261152}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1582448261152, function(require, module, exports) {
 var __TEMP__ = require('./method');var asyncMethods = __TEMP__['asyncMethods'];
 
 function hasCallback(args) {
@@ -52,8 +52,8 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
 };
 
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });var promisify = exports.promisify = _promisify;
-}, function(modId) { var map = {"./method":1581225955201}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581225955201, function(require, module, exports) {
+}, function(modId) { var map = {"./method":1582448261153}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1582448261153, function(require, module, exports) {
 if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: true });var asyncMethods = exports.asyncMethods = [
   'canvasGetImageData',
   'canvasPutImageData',
@@ -204,6 +204,6 @@ if (!exports.__esModule) Object.defineProperty(exports, "__esModule", { value: t
   'navigateBack'
 ];
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1581225955199);
+return __REQUIRE__(1582448261151);
 })()
 //# sourceMappingURL=index.js.map

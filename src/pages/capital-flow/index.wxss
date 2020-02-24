@@ -4,6 +4,14 @@ page {
   padding-bottom: 80px;
 }
 
+.van-dropdown-menu__title:after {
+  display: none;
+}
+
+.filter-wrapper {
+  display: flex;
+}
+
 .price-detail {
   display: flex;
   justify-content: space-evenly;

@@ -13,17 +13,26 @@ Page(merge(pullUpPagination, {
     startDate: null,
     endDate: null,
     keyword: '',
+    filter: {
+      value: null,
+      options: [
+        { text: '显示默认', value: null },
+        { text: '从低到高', value: 'asc' },
+        { text: '从高到底', value: 'desc' }
+      ]
+    },
     createPopupShow: false,
     currentData: null
   },
   async getData(params) {
-    const { startDate, endDate, keyword } = this.data;
+    const { startDate, endDate, keyword, filter } = this.data;
     const result = await serviceGetCapitalFlow({
       type: '',
       typeNameId: '',
       startDate,
       endDate,
       keyword,
+      sort: filter.value && `price-${filter.value}`,
       ...params
     });
 
@@ -59,11 +68,15 @@ Page(merge(pullUpPagination, {
       this.$refreshData();
     });
   },
-  handleClickCell(e) {
+  onClickCell(e) {
     const { detail } = e.currentTarget.dataset;
     this.setData({
       createPopupShow: true,
       currentData: detail
     });
+  },
+  onDropDownChange(e) {
+    this.setData({ 'filter.value': e.detail });
+    this.$resetData();
   }
 }))
