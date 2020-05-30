@@ -93,13 +93,20 @@ module.exports =
 
 
 Component({
+  externalClasses: ['custom-class'],
   options: {
     styleIsolation: 'shared'
   },
   properties: {
     plaintext: Boolean,
     value: String,
-    focus: Boolean
+    focus: Boolean,
+    // divider
+    frameStyle: String,
+    space: {
+      type: Number,
+      value: 6
+    }
   },
   data: {
     _value: '',
@@ -134,11 +141,12 @@ Component({
     },
     onInputChange: function onInputChange(e) {
       var value = e.detail.value;
+      var space = this.properties.space;
       this.setData({ _value: value });
       this.triggerEvent('change', value);
       this.init();
 
-      if (value.length >= 6) {
+      if (value.length >= space) {
         this.triggerEvent('finished', value);
       }
     },
@@ -146,7 +154,15 @@ Component({
       this.setCursorPosition();
     },
     getValue: function getValue() {
-      return this.data._value;
+      var number = this.properties.space;
+      return this.data._value.slice(0, number);
+    },
+    setValue: function setValue(v) {
+      if (v == null) return;
+
+      v = String(v);
+      this.setData({ _value: v });
+      this.init();
     }
   }
 });

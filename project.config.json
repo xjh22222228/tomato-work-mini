@@ -23,7 +23,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.11.1",
 	"appid": "wx6e44af50236bdb00",
 	"projectname": "tomato-work-weapp",
 	"debugOptions": {

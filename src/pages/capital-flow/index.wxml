@@ -22,6 +22,7 @@
       bind:search="$resetData"
       bind:change="onSearchChange"
       style="flex: 1;"
+      focus="{{ false }}"
     />
     <van-dropdown-menu>
       <van-dropdown-item 
@@ -32,7 +33,6 @@
       />
     </van-dropdown-menu>
   </view>
-
   
   <range-picker-date bind:confirm="getDateValue" />
 
