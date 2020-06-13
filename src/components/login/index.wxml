@@ -6,7 +6,7 @@
   bind:close="onClose"
 >
   <view class="container">
-    <view class="title">欢迎登录Tomato Work</view>
+    <view class="title">欢迎登录</view>
     <van-field
       value="{{ loginName }}"
       clearable
@@ -33,7 +33,7 @@
     />
     <van-button 
       type="primary" 
-      custom-style="margin: 25px 0; width: 100%;"
+      custom-style="margin: 25px 0; width: 100%; border-radius: 50px;"
       block
       bind:click="handleSubmitLogin"
       loading="{{ loading }}"
@@ -47,4 +47,5 @@
   </view>
 
   <van-notify id="van-notify" />
+  <view class="circle-decoration"></view>
 </van-popup>

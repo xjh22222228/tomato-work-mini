@@ -4,8 +4,9 @@
 
 .title {
   text-align: left;
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #000;
 }
 
 .popup .container {
@@ -21,4 +22,16 @@
 
 .action {
   text-align: left;
+}
+
+.circle-decoration {
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border: 38px solid rgb(188, 214, 253);
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
 }

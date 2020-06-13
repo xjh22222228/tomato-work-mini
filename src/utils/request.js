@@ -21,12 +21,6 @@ Promise.prototype.finally = function (callback) {
   );
 };
 
-
-/**
- * 发起网络请求 - 此API较底层, 一般用不上
- * @param {Object} object - 与原生配置一致
- * @return {Promise}
- */
 export default function request(object) {
   return new Promise(async (resolve, reject) => {
     const { globalData } = getApp();
@@ -99,18 +93,13 @@ export default function request(object) {
   });
 }
 
-export const get = function (url, data, config) {
-  return request({ url, data, method: 'GET', ...config });
+function fn(method) {
+  return (url, data, config) => {
+    return request({ url, data, method, ...config });
+  }
 }
 
-export const del = function (url, data, config) {
-  return request({ url, data, method: 'DELETE', ...config });
-}
-
-export const post = function (url, data, config) {
-  return request({ url, data, method: 'POST', ...config });
-}
-
-export const put = function (url, data, config) {
-  return request({ url, data, method: 'PUT', ...config });
-}
+export const get = fn('GET');
+export const del = fn('DELETE');
+export const post = fn('POST');
+export const put = fn('PUT');
