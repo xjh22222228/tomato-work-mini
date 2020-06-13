@@ -4,15 +4,13 @@ tomato-work 小程序
 
 WEB：[tomato-work](https://github.com/xjh22222228/tomato-work)
 
-小程序：[tomato-work-weapp](https://github.com/xjh22222228/tomato-work-weapp)
-
 服务端：[tomato-work-server](https://github.com/xjh22222228/tomato-work-server)
 
 
 ## Preview
-由于个人类目权限问题，线上版本和开发版本某些功能有些出入，建议下载源码查看。
+由于个人类目权限问题，线上版本已经很久没有再更新了，建议下载源码查看
 
-![](https://xjh22222228.github.io/public/img/tomato-work-weapp-qrcode.jpg)
+![](media/screenshot.png)
 
 
 

@@ -1,24 +1,60 @@
 @import "../../assets/styles/base-class.wxss";
 
+page {
+  padding-bottom: 50px;
+}
+
+.date {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.date .wrapper {
+  position: absolute;
+  top: calc(50%);
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.date .poster {
+  width: 100%;
+}
+
+.date .week {
+  font-weight: bold;
+  font-size: 26px;
+  color: #000;
+}
+
+.date .time {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
 .nav {
   text-align: center;
 }
 
-.nav .box {
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+.nav .item {
+  position: relative;
+  margin: 15px 15px;
 }
 
-.nav .box:not(:nth-child(3n)) {
-  border-right: 1px solid #eee;
+.nav .bg {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.row {
-  border-top: 1px solid #eee;
-}
-
-.nav .icon {
-  width: 35px;
-  height: 35px;
-  margin-bottom: 5px;
+.nav .wrapper {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 20px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  transform: translateY(-50%);
 }

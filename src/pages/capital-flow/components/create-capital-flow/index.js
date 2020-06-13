@@ -14,7 +14,16 @@ Component({
     styleIsolation: 'shared'
   },
   properties: {
-    show: Boolean,
+    show: {
+      type: Boolean,
+      observer(isShow) {
+        setTimeout(() => {
+          this.setData({
+            focus: isShow
+          });
+        }, 200);
+      }
+    },
     data: {
       type: null,
       observer(value) {
@@ -23,7 +32,7 @@ Component({
             price: value.price,
             remarks: value.remarks,
             classifyValue: value.typeId,
-            date: dayjs(value.date).format(format)
+            date: dayjs(value.date).format(format),
           });
         }
       }
@@ -35,7 +44,8 @@ Component({
     date: dayjs().format(format),
     confirmLoading: false,
     price: '',
-    remarks: ''
+    remarks: '',
+    focus: false
   },
   lifetimes: {
     attached() {

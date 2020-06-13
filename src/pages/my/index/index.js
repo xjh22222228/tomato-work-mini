@@ -1,9 +1,13 @@
 import { serviceLogout } from '../../../services/user';
+import dayjs from 'dayjs';
 
 Page({
   data: {
-    cellList: [],
-    userInfo: {}
+    userInfo: {},
+    totalDay: 0
+  },
+  onShow() {
+    this.computedDay();
   },
   handleLogout() {
     serviceLogout();
@@ -13,6 +17,16 @@ Page({
   onAuthChange(e) {
     this.setData({
       userInfo: e.detail.userInfo
+    });
+    this.computedDay();
+  },
+  computedDay() {
+    const { createdAt } = this.data.userInfo;
+    if (!createdAt) return;
+    const createdAtTime = dayjs(createdAt).valueOf();
+    const day = (Date.now() - createdAtTime) / (1000 * 60 * 60 * 24);
+    this.setData({
+      totalDay: Math.floor(day)
     });
   }
 })

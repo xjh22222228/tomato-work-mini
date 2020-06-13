@@ -1,31 +1,28 @@
 <view class="my">
   <view class="info">
-    <avatar url="{{ userInfo.avatarUrl }}" />
-    <view class="nick-name">{{ userInfo.loginName }}</view>
-  </view>
-
-  <view class="cell">
-    <van-cell-group>
-      <van-cell 
-        wx:for="{{ cellList }}" 
-        wx:key="name" 
-        icon="{{ item.icon }}"
-        title="{{ item.name }}" 
-        url="{{ item.url }}"
-        is-link
-      />
-    </van-cell-group>
+    <image class="poster" src="/src/assets/img/my/poster.png" mode="widthFix" />
+    <view class="wrapper">
+      <avatar url="{{ userInfo.avatarUrl }}" />
+      <view class="nick-name">{{ userInfo.loginName }}</view>
+      <view class="location">{{ userInfo.location }}</view>
+    </view>
   </view>
 
   <view class="logout-button">
     <van-button 
-      type="default"
+      type="primary"
       block
-      custom-style="width: 100%;"
+      custom-style="width: 100%; border-radius: 50px;"
       bind:click="handleLogout"
     >
       退出我的账号
     </van-button>
   </view>
+
+  <view class="footer">
+    <view>你已经呆了{{ totalDay }}天</view>
+    <view>超棒的 (#^.^#)</view>
+  </view>
 </view>
 <auth-login id="auth-login" bind:change="onAuthChange"></auth-login>
+<view class="circle-decoration"></view>

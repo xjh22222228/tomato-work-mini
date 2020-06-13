@@ -35,7 +35,7 @@
         maxlength="{{ 8 }}"
         data-field-name="price"
         bind:change="onInputChange"
-        focus
+        focus="{{ focus }}"
         title-width="68px"
       />
       <van-field

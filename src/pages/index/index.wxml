@@ -1,23 +1,30 @@
 <view class="container">
+  <view class="date">
+    <image class="poster" src="/src/assets/img/index/poster.png" mode="widthFix" />
+    <view class="wrapper">
+      <view class="week">{{ week }}</view>
+      <view class="time">{{ time }}</view>
+    </view>
+  </view>
+
   <view class="nav">
-    <van-row custom-class="row">
-      <van-col 
-        span="8" 
-        wx:for="{{ navList }}"
-        wx:key="name"
-      >
-        <view 
-          class="box" 
-          hover-class="touch-active" 
-          hover-stay-time="{{ 50 }}"
-          bind:tap="handleClickNav"
-          data-detail="{{ item }}"
-        >
-          <image src="{{ item.imageUrl }}" class="icon"></image>
-          <view class="name">{{ item.name }}</view>
-        </view>
-      </van-col>
-    </van-row>
+    <view
+      class="item"
+      wx:for="{{ navList }}"
+      wx:key="name"
+      bind:tap="handleClickNav"
+      data-detail="{{ item }}"
+    >
+      <image
+        class="bg"
+        src="{{ item.imageUrl }}"
+        mode="widthFix"
+        style="box-shadow: 3px 8px 20px {{ item.shadowColor }}"
+      />
+      <view class="wrapper">
+        <view class="title">{{ item.name }}</view>
+      </view>
+    </view>
   </view>
 
 </view>
