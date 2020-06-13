@@ -2,12 +2,7 @@
  * 微信API接口封装
  * @author xiejiahe
  */
-import { promisifyAll } from 'miniprogram-api-promise';
 import qs from 'qs';
-
-// 将微信API转成Promise
-const wxp = {};
-promisifyAll(wx, wxp);
 
 /**
  * 预览图片
@@ -61,5 +56,3 @@ function navigate(name) {
     return wx[name](object);
   }
 }
-
-export default wxp;
