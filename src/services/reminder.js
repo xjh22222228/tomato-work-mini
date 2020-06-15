@@ -9,10 +9,14 @@ export function serviceCreateReminder(data) {
 
 // 查询
 export async function serviceGetReminder(data) {
-  const res = await get(api.reminder, data);
+  const res = await get(api.reminder, {
+    type: 1,
+    ...data
+  });
   res.rows = res.rows.map(item => {
-    item.__date__ = dayjs(item.date).format('YYYY-MM-DD HH:mm');
+    item.__date__ = dayjs(item.date).format('YYYY.MM.DD HH:mm');
     item.__hasChecked__ = item.type === 1;
+    item.__statusText__ = item.type === 1 ? '进行中' : '已通知';
     return item;
   });
   return res;

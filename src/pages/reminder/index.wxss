@@ -1,17 +1,42 @@
 @import "../../assets/styles/base-class.wxss";
 
 page {
-  padding-bottom: 80px;
+  padding-bottom: 30px;
+  background: var(--gray-background-color);
 }
 
 .item {
-  padding: 10px 15px;
-  border-bottom: 1px solid #f2f2f2;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #fff;
 }
 
 .item .top {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item .left {
   font-size: 18px;
+  color: rgb(49, 18, 17);
+}
+
+.item .footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.footer .time {
+  display: flex;
+  align-items: center;
+}
+
+.footer .action {
+  display: flex;
   align-items: center;
 }

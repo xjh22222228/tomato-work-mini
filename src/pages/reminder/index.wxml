@@ -1,26 +1,43 @@
 <view>
-  <block wx:if="{{ data.length > 0 }}">
-    <van-cell-group custom-class="cell-group">
-      <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
-        <view class="item" hover-class="touch-active" hover-stay-time="{{ 0 }}">
-          <view class="top">
-            <view class="date">{{ item.__date__ }}</view>
-            <van-switch checked="{{ item.__hasChecked__ }}" />
-          </view>
-          <view class="content">{{ item.content }}</view>
-        </view>
+  <van-tabs active="{{ tabValue }}" bind:change="onTabChange">
+    <van-tab title="进行中" name="{{ 1 }}"></van-tab>
+    <van-tab title="已通知" name="{{ 2 }}"></van-tab>
+  </van-tabs>
 
-        <van-button 
-          slot="right"
-          type="danger" 
-          custom-style="height: 100%; width: 65px;"
-          bind:click="handleDelete"
-          data-id="{{ item.id }}"
-        >
-          删除
-        </van-button>
-      </van-swipe-cell>
-    </van-cell-group>
+  <block wx:if="{{ data.length > 0 }}">
+    <view
+      class="item"
+      wx:for="{{ data }}"
+      wx:key="id"
+      data-detail="{{ item }}"
+      bind:tap="handleClickCell"
+    >
+      <view class="top">
+        <view class="left">{{ item.content }}</view>
+        <view class="right">{{ item.__statusText__ }}</view>
+      </view>
+      <view class="footer">
+        <view class="time">{{ item.__date__ }}</view>
+        <view class="action">
+          <van-button
+            type="danger"
+            round
+            size="small"
+            custom-style="width: 50px;"
+            bind:click="handleDelete"
+            data-id="{{ item.id }}"
+          >
+            删除
+          </van-button>
+          <van-switch
+            checked="{{ item.__hasChecked__ }}"
+            size="26px"
+            style="margin: 5px 0 0 5px;"
+            catch:change="onSwitchChange"
+          />
+        </view>
+      </view>
+    </view>
   </block>
   <no-data wx:else />
 

@@ -45,7 +45,7 @@
       custom-style="width: 100%; margin-top: 15px;"
       loading="{{ confirmLoading }}"
     >
-      {{ data ? '更新' : '新增' }}
+      {{ data ? '保存并更新' : '立即新增' }}
     </van-button>
   </view>
 </van-popup>

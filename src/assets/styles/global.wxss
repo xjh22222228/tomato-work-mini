@@ -4,7 +4,9 @@ page {
   color: #666;
 
   /* 主题色 */
-  --theme-color: rgb(0, 171, 197);
+  --theme-color: #1890ff;
+  /* 灰色背景色 */
+  --gray-background-color: #eee;
 }
 
 /* Vant */
@@ -12,4 +14,10 @@ page {
   /* Button */
   --button-primary-background-color: var(--theme-color);
   --button-primary-border-color: var(--theme-color);
+
+  /* Tab */
+  --tab-active-text-color:var(--theme-color);
+
+  /* Tabs */
+  --tabs-bottom-bar-color: var(--theme-color);
 }
