@@ -8,12 +8,11 @@
  *    getData(params) {
  *      return serviceGetAllCollection(params);
  *    },
- * 
- *    // do something ...
+ *    ...
  *  }))
  * 
  *  如果引入了当前 `mixins` 页面的生命周期需要修改
- *  onLoad => onLoadCallback
+ *  onShow => onShowCallback
  */
 
 const pageSize = 30;
@@ -30,8 +29,8 @@ export default {
       isInitData: true
     }
   },
-  onLoad(options) {
-    this.onLoadCallback && this.onLoadCallback(options);
+  onShow(options) {
+    this.onShowCallback && this.onShowCallback(options);
     this.data.pagination.isInitData && this.$getData();
   },
   onReachBottom() {

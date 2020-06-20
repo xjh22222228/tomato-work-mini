@@ -29,12 +29,16 @@
           >
             删除
           </van-button>
-          <van-switch
-            checked="{{ item.__hasChecked__ }}"
-            size="26px"
-            style="margin: 5px 0 0 5px;"
-            catch:change="onSwitchChange"
-          />
+          <view catch:tap style="margin: 5px 0 0 5px;">
+            <van-switch
+              checked="{{ item.__hasChecked__ }}"
+              loading="{{ item.__loading__ }}"
+              size="26px"
+              catch:change="onSwitchChange"
+              data-index="{{ index }}"
+              data-detail="{{ item }}"
+            />
+          </view>
         </view>
       </view>
     </view>

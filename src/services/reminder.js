@@ -17,6 +17,7 @@ export async function serviceGetReminder(data) {
     item.__date__ = dayjs(item.date).format('YYYY.MM.DD HH:mm');
     item.__hasChecked__ = item.type === 1;
     item.__statusText__ = item.type === 1 ? '进行中' : '已通知';
+    item.__loading__ = false;
     return item;
   });
   return res;

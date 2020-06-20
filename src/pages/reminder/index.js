@@ -10,7 +10,10 @@ Page(merge(pullUpPagination, {
   data: {
     currentData: null,
     popupShow: false,
-    tabValue: 1
+    tabValue: 1,
+    pagination: {
+      isInitData: true
+    },
   },
   onTabChange({ detail }) {
     this.setData({ tabValue: detail.name });
@@ -47,5 +50,16 @@ Page(merge(pullUpPagination, {
     });
   },
   onSwitchChange(e) {
+    const { index, detail } = e.currentTarget.dataset;
+    const hasCheck = e.detail;
+    const data = [...this.data.data];
+    data[index].__loading__ = true;
+    data[index].__hasChecked__ = hasCheck;
+    this.setData({ data });
+    serviceUpdateReminder(detail.id, {
+      type: hasCheck ? 1 : 2
+    }).finally(() => {
+      this.$refreshData();
+    });
   }
 }))

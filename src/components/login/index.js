@@ -14,6 +14,10 @@ Component({
           wx.showTabBar();
         }
       }
+    },
+    showClose: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

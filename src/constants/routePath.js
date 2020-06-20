@@ -1,4 +1,6 @@
 
+// 首页
+export const HOME_URL = '/src/pages/index/index';
 // 登录
 export const LOGIN_URL = '/src/pages/login/index';
 // 我的备忘

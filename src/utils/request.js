@@ -1,12 +1,17 @@
 import CONFIG from '../config/index';
 import { normalizeUrl } from './url';
 import { filterNil } from './object';
+import { navigateTo } from './wxApi';
+import { LOGIN_URL } from '../constants/routePath';
 
 const ERROR_TEXT = '系统繁忙';
 const LOADING_TEXT = '正在加载...';
 const { network } = CONFIG;
 
 function handleError(res) {
+  if (res.data.errorCode === 401) {
+    navigateTo(LOGIN_URL);
+  }
   wx.showToast({
     title: res.data.msg,
     icon: 'none'
@@ -41,8 +46,8 @@ export default function request(object) {
 
     // 请求是否显示 loading
     config.isLoading = 'isLoading' in config 
-                        ? config.isLoading 
-                        : config.data.pageNo === 0;
+      ? config.isLoading 
+      : config.data.pageNo === 0;
     // 请求中的文字
     config.loadingText = 'loadingText' in config ? config.loadingText : LOADING_TEXT;
     // 请求失败提示语

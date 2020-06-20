@@ -8,7 +8,8 @@
     "src/pages/today-task/index",
     "src/pages/todo-list/index",
     "src/pages/capital-flow/index",
-    "src/pages/my/index/index"
+    "src/pages/my/index/index",
+    "src/pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

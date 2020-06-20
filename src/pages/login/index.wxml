@@ -1,0 +1,5 @@
+<login
+  show="{{ showLogin }}"
+  bind:close="onClose"
+  showClose="{{ false }}"
+/>

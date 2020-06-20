@@ -1,6 +1,6 @@
 <van-popup
   show="{{ show }}"
-  closeable
+  closeable="{{ showClose }}"
   position="bottom"
   custom-class="popup"
   bind:close="onClose"
