@@ -1,16 +1,16 @@
 <view>
-  <view class="price-detail">
-    <view class="price">
-      <view class="num">￥{{ income }}</view>
-      <view>收入(元)</view>
-    </view>
-    <view class="price">
-      <view class="num">￥{{ consumption }}</view>
-      <view>支出(元)</view>
-    </view>
-    <view class="price">
-      <view class="num">￥{{ available }}</view>
-      <view>实际收入(元)</view>
+  <view class="information">
+    <view class="page-title">账本</view>
+    <view class="price-detail">
+      <view class="subtitle">净资产</view>
+      <view class="available">{{ available }}</view>
+
+      <view class="price">
+        <text class="name">收入 </text>
+        <text class="num">{{ income }}</text>
+        <text class="name" style="margin-left: 10px;">支出 </text>
+        <text class="num">{{ consumption }}</text>
+      </view>
     </view>
   </view>
 
