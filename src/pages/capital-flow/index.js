@@ -1,6 +1,6 @@
 import pullUpPagination from '../../behaviors/pullUpPagination';
 import { serviceGetCapitalFlow, serviceDeleteCapitalFlow } from '../../services/capitalFlow';
-import { merge } from '../../utils/object';
+import merge from 'lodash.merge';
 
 Page(merge(pullUpPagination, {
   data: {

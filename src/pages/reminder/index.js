@@ -1,5 +1,5 @@
 import pullUpPagination from '../../behaviors/pullUpPagination';
-import { merge } from '../../utils/object';
+import merge from 'lodash.merge';
 import {
   serviceGetReminder,
   serviceDeleteReminder,

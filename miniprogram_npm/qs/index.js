@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { __MODS__[modId].m.exports.__proto__ = m.exports.__proto__; Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; var desp = Object.getOwnPropertyDescriptor(m.exports, k); if(desp && desp.configurable) Object.defineProperty(m.exports, k, { set: function(val) { __MODS__[modId].m.exports[k] = val; }, get: function() { return __MODS__[modId].m.exports[k]; } }); }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1592039853555, function(require, module, exports) {
+__DEFINE__(1592626217967, function(require, module, exports) {
 
 
 var stringify = require('./stringify');
@@ -17,8 +17,8 @@ module.exports = {
     stringify: stringify
 };
 
-}, function(modId) {var map = {"./stringify":1592039853556,"./parse":1592039853559,"./formats":1592039853558}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1592039853556, function(require, module, exports) {
+}, function(modId) {var map = {"./stringify":1592626217968,"./parse":1592626217971,"./formats":1592626217970}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1592626217968, function(require, module, exports) {
 
 
 var utils = require('./utils');
@@ -291,8 +291,8 @@ module.exports = function (object, opts) {
     return joined.length > 0 ? prefix + joined : '';
 };
 
-}, function(modId) { var map = {"./utils":1592039853557,"./formats":1592039853558}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1592039853557, function(require, module, exports) {
+}, function(modId) { var map = {"./utils":1592626217969,"./formats":1592626217970}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1592626217969, function(require, module, exports) {
 
 
 var has = Object.prototype.hasOwnProperty;
@@ -543,7 +543,7 @@ module.exports = {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1592039853558, function(require, module, exports) {
+__DEFINE__(1592626217970, function(require, module, exports) {
 
 
 var replace = String.prototype.replace;
@@ -571,8 +571,8 @@ module.exports = util.assign(
     Format
 );
 
-}, function(modId) { var map = {"./utils":1592039853557}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1592039853559, function(require, module, exports) {
+}, function(modId) { var map = {"./utils":1592626217969}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1592626217971, function(require, module, exports) {
 
 
 var utils = require('./utils');
@@ -831,7 +831,7 @@ module.exports = function (str, opts) {
     return utils.compact(obj);
 };
 
-}, function(modId) { var map = {"./utils":1592039853557}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1592039853555);
+}, function(modId) { var map = {"./utils":1592626217969}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1592626217967);
 })()
 //# sourceMappingURL=index.js.map
