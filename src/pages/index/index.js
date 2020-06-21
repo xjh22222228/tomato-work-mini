@@ -21,6 +21,12 @@ Page({
         shadowColor: 'rgba(74, 133, 248, .5)'
       },
       {
+        imageUrl: '/src/assets/img/index/1.png',
+        name: '提醒事项',
+        url: REMINDER_URL,
+        shadowColor: 'rgba(74, 133, 248, .5)'
+      },
+      {
         imageUrl: '/src/assets/img/index/2.png',
         name: '我的备忘',
         url: MEMORANDUM_URL,
@@ -37,12 +43,6 @@ Page({
       //   name: '今日待办',
       //   url: TODAY_TASK_URL
       // },
-      {
-        imageUrl: '/src/assets/img/index/1.png',
-        name: '提醒事项',
-        url: REMINDER_URL,
-        shadowColor: 'rgba(74, 133, 248, .5)'
-      }
     ],
     time: '',
     week: WEEK[new Date().getDay()]

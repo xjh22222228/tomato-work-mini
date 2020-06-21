@@ -27,7 +27,6 @@ page {
 .price-detail {
   padding: 15px 10px;
   border-bottom: 1px solid #f2f2f2;
-  font-size: 12px;
   background: #fff;
   border-radius: 5px;
 }

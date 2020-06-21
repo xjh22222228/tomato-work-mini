@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "custom",
   "navigationBarTitleText": "我的",
   "disableScroll": true,
   "usingComponents": {
