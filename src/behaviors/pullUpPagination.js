@@ -31,7 +31,7 @@ export default {
   },
   onShow(options) {
     this.onShowCallback && this.onShowCallback(options);
-    this.data.pagination.isInitData && this.$getData();
+    this.data.pagination.isInitData && this.$getData(null, null, true);
   },
   onReachBottom() {
     const { pagination } = this.data;

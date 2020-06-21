@@ -3,6 +3,11 @@ import merge from 'lodash.merge';
 import { serviceGetInnerMessage, serviceUpdateInnerMessageHasRead } from '../../services/innerMessage';
 
 Page(merge(pullUpPagination, {
+  data: {
+    pagination: {
+      isInitData: true
+    }
+  },
   async getData() {
     const res = await serviceGetInnerMessage();
     const ids = res.rows.map(msg => !msg.hasRead ? msg.id : '').join(',');
