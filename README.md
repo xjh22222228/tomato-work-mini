@@ -1,16 +1,27 @@
-# tomato-work-weapp ![GitHub package.json version](https://img.shields.io/github/package-json/v/xjh22222228/tomato-work-weapp) ![GitHub](https://img.shields.io/github/license/xjh22222228/tomato-work-weapp)
-tomato-work 小程序
-
-
-WEB：[tomato-work](https://github.com/xjh22222228/tomato-work)
-
-服务端：[tomato-work-server](https://github.com/xjh22222228/tomato-work-server)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/xjh22222228/tomato-work/master/public/poster.png" width="150" />
+  <br />
+  <b>Tomato Work 小程序</b>
+  <p align="center">
+    <a href="https://github.com/xjh22222228/tomato-work">WEB </a>
+    <a href="https://github.com/xjh22222228/tomato-work-server"> 服务端</a>
+  </p>
+  <p align="center">
+    <a href="https://github.com/xjh22222228/tomato-work-weapp/stargazers"><img src="https://img.shields.io/github/stars/xjh22222228/tomato-work-weapp" alt="Stars Badge"/></a>
+    <img src="https://img.shields.io/github/package-json/v/xjh22222228/tomato-work-weapp" />
+    <img src="https://img.shields.io/github/license/xjh22222228/tomato-work-weapp" />
+    <a href="https://hits.dwyl.com/xjh22222228/tomato-work-weapp">
+      <img src="https://hits.dwyl.com/xjh22222228/tomato-work-weapp.svg" />
+    </a>
+  </p>
+</p>
 
 
 ## Preview
-由于个人类目权限问题，线上版本已经很久没有再更新了，建议下载源码查看
+由于个人类目权限问题，线上版本已经没有再更新了，建议下载源码查看
 
-![](media/screenshot.png)
+
+<img src="media/screenshot.png" width="300" />
 
 
 
