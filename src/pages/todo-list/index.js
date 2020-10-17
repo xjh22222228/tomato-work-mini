@@ -1,5 +1,6 @@
 import pullUpPagination from '../../behaviors/pullUpPagination';
 import merge from 'lodash.merge';
+import dayjs from 'dayjs';
 import {
   serviceGetTodoList,
   serviceUpdateTodoList,
@@ -14,8 +15,8 @@ Page(merge(pullUpPagination, {
   getData(params, config) {
     return serviceGetTodoList({
       sort: 'status-desc',
-      startDate: 0,
-      endDate: Date.now(),
+      startDate: dayjs('2011-01-01').format('YYYY-MM-DD'),
+      endDate: dayjs().format('YYYY-MM-DD'),
       ...params
     }, config);
   },
@@ -36,5 +37,8 @@ Page(merge(pullUpPagination, {
   },
   onClickAction() {
     this.setData({ popupShow: true });
-  }
+  },
+  onPopupClose() {
+    this.setData({ popupShow: false });
+  },
 }))

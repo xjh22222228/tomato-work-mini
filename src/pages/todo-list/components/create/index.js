@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import {
-  serviceCreateReminder,
-  serviceUpdateReminder,
-} from '../../../../services/reminder';
+  serviceCreateTodoList,
+  serviceUpdateTodoList,
+} from '../../../../services/todoList';
 
-const dateFormat = 'YYYY-MM-DD';
-const timeFormat = 'HH:mm';
+const DATE_FORMAT = 'YYYY-MM-DD';
+const TIME_FORMAT = 'HH:mm';
 
 Component({
   properties: {
@@ -16,16 +16,16 @@ Component({
         if (value) {
           this.setData({
             content: value.content,
-            date: dayjs(value.date).format(dateFormat),
-            time: dayjs(value.date).format(timeFormat)
+            date: dayjs(value.date).format(DATE_FORMAT),
+            time: dayjs(value.date).format(TIME_FORMAT)
           });
         }
       }
     }
   },
   data: {
-    date: dayjs().format(dateFormat),
-    time: dayjs().format(timeFormat),
+    date: dayjs().format(DATE_FORMAT),
+    time: dayjs().format(TIME_FORMAT),
     content: '',
     confirmLoading: false
   },
@@ -47,7 +47,7 @@ Component({
       const { content, date, time } = this.data;
       const { data } = this.properties;
       const params = {
-        date: dayjs(date + ' ' + time).valueOf(),
+        date: dayjs(date + ' ' + time).format('YYYY-MM-DD HH:mm:ss'),
         content
       };
 
@@ -55,8 +55,8 @@ Component({
 
       (
         data 
-        ? serviceUpdateReminder(data.id, params) 
-        : serviceCreateReminder(params)
+        ? serviceUpdateTodoList(data.id, params) 
+        : serviceCreateTodoList(params)
       )
       .then(() => {
         this.onClose();

@@ -48,10 +48,10 @@ Page(merge(pullUpPagination, {
     this.setData({ keyword: e.detail });
   },
   getDateValue(e) {
-    const { startDateTimestamp, endDateTimestamp } = e.detail;
+    const { startDate, endDate } = e.detail;
     this.setData({
-      startDate: startDateTimestamp,
-      endDate: endDateTimestamp
+      startDate,
+      endDate
     });
     this.$resetData();
   },

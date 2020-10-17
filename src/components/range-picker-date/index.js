@@ -1,20 +1,16 @@
-import {
-  getCurMonthFirstDay,
-  getCurMonthLastDay,
-  getStartTimestampByDate,
-  getEndTimestampByDate
-} from '../../utils/date';
+import dayjs from 'dayjs';
 
+const DATE_FORMAT = 'YYYY-MM-DD';
 
 Component({
   properties: {
     startDateValue: {
       type: String,
-      value: getCurMonthFirstDay('YYYY-MM-DD')
+      value: dayjs().startOf('month').startOf('hour').format(DATE_FORMAT)
     },
     endDateValue: {
       type: String,
-      value: getCurMonthLastDay('YYYY-MM-DD')
+      value: dayjs().endOf('month').endOf('hour').format(DATE_FORMAT)
     },
     fields: {
       type: String,
@@ -47,8 +43,6 @@ Component({
     triggerConfirmEvent() {
       const { startDate, endDate } = this.data;
       this.triggerEvent('confirm', {
-        startDateTimestamp: getStartTimestampByDate(startDate),
-        endDateTimestamp: getEndTimestampByDate(endDate),
         startDate,
         endDate
       });

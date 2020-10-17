@@ -11,7 +11,7 @@ export function serviceCreateTodoList(data) {
 export async function serviceGetTodoList(data, config) {
   const res = await get(api.todoList, data, config);
   res.rows = res.rows.map(item => {
-    item.__date__ = dayjs(item.date).format('M月D日');
+    item.__date__ = dayjs(item.createdAt).format('YYYY年M月D日');
     return item;
   });
 

@@ -7,7 +7,7 @@ import {
   serviceDeleteCapitalFlow
 } from '../../../../services/capitalFlow';
 
-const format = 'YYYY-MM-DD';
+const FORMAT = 'YYYY-MM-DD';
 
 Component({
   options: {
@@ -32,7 +32,7 @@ Component({
             price: value.price,
             remarks: value.remarks,
             classifyValue: value.typeId,
-            date: dayjs(value.date).format(format),
+            date: dayjs(value.date).format(FORMAT),
           });
         }
       }
@@ -41,7 +41,7 @@ Component({
   data: {
     classifyList: [],
     classifyValue: null,
-    date: dayjs().format(format),
+    date: dayjs().format(FORMAT),
     confirmLoading: false,
     price: '',
     remarks: '',
@@ -93,9 +93,8 @@ Component({
     handleSubmit() {
       const { classifyValue, remarks, price = 0, date } = this.data;
       const { data } = this.properties;
-      const timestamp = dayjs(date).valueOf();
       const params = {
-        date: timestamp,
+        date: dayjs(date).format('YYYY-MM-DD HH:mm:ss'),
         typeId: classifyValue,
         price: Number(price),
         remarks

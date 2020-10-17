@@ -1,6 +1,7 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 var component_1 = require('../common/component');
+var utils_1 = require('../common/utils');
 component_1.VantComponent({
   classes: ['title-class'],
   props: {
@@ -31,22 +32,13 @@ component_1.VantComponent({
     },
   },
   data: {
-    statusBarHeight: 0,
-    height: 44,
-    baseStyle: '',
+    height: 46,
   },
   created: function () {
-    var statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
-    var _a = this.data,
-      safeAreaInsetTop = _a.safeAreaInsetTop,
-      zIndex = _a.zIndex;
-    var paddingTop = safeAreaInsetTop ? statusBarHeight : 0;
-    var baseStyle =
-      'z-index: ' + zIndex + ';padding-top: ' + paddingTop + 'px;';
+    var statusBarHeight = utils_1.getSystemInfoSync().statusBarHeight;
     this.setData({
       statusBarHeight: statusBarHeight,
-      height: 44 + statusBarHeight,
-      baseStyle: baseStyle,
+      height: 46 + statusBarHeight,
     });
   },
   mounted: function () {
@@ -65,7 +57,7 @@ component_1.VantComponent({
         return;
       }
       wx.nextTick(function () {
-        _this.getRect('.van-nav-bar').then(function (res) {
+        utils_1.getRect.call(_this, '.van-nav-bar').then(function (res) {
           _this.setData({ height: res.height });
         });
       });

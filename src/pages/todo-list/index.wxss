@@ -13,3 +13,8 @@ page {
   flex: 1;
   margin-right: 15px;
 }
+
+.date {
+  text-align: right;
+  margin: 0 10px 10px 0;
+}

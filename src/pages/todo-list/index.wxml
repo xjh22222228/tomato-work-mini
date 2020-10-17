@@ -17,8 +17,8 @@
               {{ item.content }}
             </van-checkbox>
           </view>
-          <view class="date">{{ item.__date__ }}</view>
         </view>
+        <view class="date">{{ item.__date__ }}</view>
 
         <van-button 
           slot="right"
@@ -36,4 +36,9 @@
 </view>
 
 <floating-action-button bind:click="onClickAction" />
-<tm-create show="{{ popupShow }}" />
+<tm-create 
+  show="{{ popupShow }}" 
+  data="{{ currentData }}"
+  bind:close="onPopupClose"
+  bind:success="$resetData"
+/>
