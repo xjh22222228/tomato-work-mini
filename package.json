@@ -3,7 +3,9 @@
   "version": "2.3.0",
   "description": "tomato work weapp",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint ./src"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xjh22222228/tomato-work-weapp.git"
@@ -22,8 +24,11 @@
   "dependencies": {
     "@vant/weapp": "^1.5.2",
     "blueimp-md5": "^2.18.0",
-    "dayjs": "^1.9.3",
+    "dayjs": "^1.9.4",
     "lodash.merge": "^4.6.2",
     "qs": "^6.9.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1"
   }
 }

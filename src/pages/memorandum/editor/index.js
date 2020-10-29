@@ -1,50 +1,50 @@
-import Dialog from '../../../../@vant/weapp/dialog/dialog';
+import Dialog from '../../../../@vant/weapp/dialog/dialog'
 import {
   serviceGetMemorandumById,
   serviceDeleteMemorandumById,
   serviceCreateMemorandum,
   serviceUpdateMemorandum
-} from '../../../services/index';
+} from '../../../services/index'
 
-const defaultTitle = '无标题';
+const DEFAULT_TITLE = '无标题'
 
 Page({
   data: {
-    title: defaultTitle,
+    title: DEFAULT_TITLE,
     id: null,
     content: '',
-    defaultTitle
+    defaultTitle: DEFAULT_TITLE
   },
   onLoad({ id }) {
     if (id) {
-      this.setData({ id });
-      this.getData();
+      this.setData({ id })
+      this.getData()
     }
   },
   onInputChange(e) {
-    this.setData({ title: e.detail });
+    this.setData({ title: e.detail })
   },
   getData() {
-    const { id } = this.data;
-    if (!id) return;
+    const { id } = this.data
+    if (!id) return
     serviceGetMemorandumById(id)
     .then(res => {
       this.setData({
         title: res.title,
         content: res.markdown
-      });
-      
-      this.editorCtx && this.editorCtx.setContents({ html: res.markdown });
-    });
+      })
+
+      this.editorCtx && this.editorCtx.setContents({ html: res.markdown })
+    })
   },
   onEditorReady() {
     wx.createSelectorQuery().select('#editor').context(res => {
-      this.editorCtx = res.context;
-      this.editorCtx.setContents({ html: this.data.content });
-    }).exec();
+      this.editorCtx = res.context
+      this.editorCtx.setContents({ html: this.data.content })
+    }).exec()
   },
   onEditorChange(e) {
-    this.setData({ content: e.detail.text });
+    this.setData({ content: e.detail.text })
   },
   onDelete() {
     Dialog.confirm({
@@ -53,23 +53,23 @@ Page({
     }).then(() => {
       serviceDeleteMemorandumById(this.data.id)
       .then(() => {
-        wx.navigateBack();
-      });
-    }).catch(() => {});
+        wx.navigateBack()
+      })
+    }).catch(() => {})
   },
   onFinish() {
-    const { id, title, content } = this.data;
+    const { id, title, content } = this.data
     const params = {
       markdown: content,
-      title: title || defaultTitle
+      title: title || DEFAULT_TITLE
     };
 
     (
-      id 
-      ? serviceUpdateMemorandum(id, params)
-      : serviceCreateMemorandum(params)
+      id
+        ? serviceUpdateMemorandum(id, params)
+        : serviceCreateMemorandum(params)
     ).then(() => {
-      wx.navigateBack();
-    });
+      wx.navigateBack()
+    })
   }
 })

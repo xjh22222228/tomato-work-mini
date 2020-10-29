@@ -1,11 +1,11 @@
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 import {
   serviceCreateReminder,
   serviceUpdateReminder,
-} from '../../../../services/reminder';
+} from '../../../../services/reminder'
 
-const dateFormat = 'YYYY-MM-DD';
-const timeFormat = 'HH:mm';
+const DATE_FORMAT = 'YYYY-MM-DD'
+const TIME_FORMAT = 'HH:mm'
 
 Component({
   properties: {
@@ -16,55 +16,55 @@ Component({
         if (value) {
           this.setData({
             content: value.content,
-            date: dayjs(value.date).format(dateFormat),
-            time: dayjs(value.date).format(timeFormat)
-          });
+            date: dayjs(value.createdAt).format(DATE_FORMAT),
+            time: dayjs(value.date).format(TIME_FORMAT)
+          })
         }
       }
     }
   },
   data: {
-    date: dayjs().format(dateFormat),
-    time: dayjs().format(timeFormat),
+    date: dayjs().format(DATE_FORMAT),
+    time: dayjs().format(TIME_FORMAT),
     content: '',
     confirmLoading: false
   },
   methods: {
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent('close')
     },
     onDateChange(e) {
-      this.setData({ date: e.detail.value });
+      this.setData({ date: e.detail.value })
     },
     onTimeChange(e) {
-      this.setData({ time: e.detail.value });
+      this.setData({ time: e.detail.value })
     },
     onInputChange(e) {
-      const { fieldName } = e.currentTarget.dataset;
-      this.setData({ [fieldName]: e.detail });
+      const { fieldName } = e.currentTarget.dataset
+      this.setData({ [fieldName]: e.detail })
     },
     handleSubmit() {
-      const { content, date, time } = this.data;
-      const { data } = this.properties;
+      const { content, date, time } = this.data
+      const { data } = this.properties
       const params = {
         date: dayjs(date + ' ' + time).valueOf(),
         content
-      };
+      }
 
       this.setData({ confirmLoading: true });
 
       (
-        data 
-        ? serviceUpdateReminder(data.id, params) 
+        data
+        ? serviceUpdateReminder(data.id, params)
         : serviceCreateReminder(params)
       )
       .then(() => {
-        this.onClose();
-        this.triggerEvent('success');
+        this.onClose()
+        this.triggerEvent('success')
       })
       .finally(() => {
-        this.setData({ confirmLoading: false });
-      });
+        this.setData({ confirmLoading: false })
+      })
     }
   }
 })

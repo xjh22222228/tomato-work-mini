@@ -1,7 +1,7 @@
 
 // 判断是否是一个 url
 export function isUrl(url) {
-  const regex = /(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/
+  const regex = /(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-.,@?^=%&:/~+#]*[\w\-@?^=%&/~+#])?/
   return regex.test(url)
 }
 

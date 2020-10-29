@@ -1,6 +1,6 @@
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
-const DATE_FORMAT = 'YYYY-MM-DD';
+const DATE_FORMAT = 'YYYY-MM-DD'
 
 Component({
   properties: {
@@ -23,29 +23,29 @@ Component({
   },
   lifetimes: {
     attached() {
-      const { startDateValue, endDateValue } = this.properties;
+      const { startDateValue, endDateValue } = this.properties
       this.setData({
         startDate: startDateValue,
         endDate: endDateValue
-      });
-      this.triggerConfirmEvent();
+      })
+      this.triggerConfirmEvent()
     }
   },
   methods: {
     getStartDateValue(e) {
-      this.setData({ startDate: e.detail.value });
-      this.triggerConfirmEvent();
+      this.setData({ startDate: e.detail.value })
+      this.triggerConfirmEvent()
     },
     getEndDateValue(e) {
-      this.setData({ endDate: e.detail.value });
-      this.triggerConfirmEvent();
+      this.setData({ endDate: e.detail.value })
+      this.triggerConfirmEvent()
     },
     triggerConfirmEvent() {
-      const { startDate, endDate } = this.data;
+      const { startDate, endDate } = this.data
       this.triggerEvent('confirm', {
         startDate,
         endDate
-      });
+      })
     }
   }
 })

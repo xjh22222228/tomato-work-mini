@@ -9,7 +9,7 @@ Component({
   },
   methods: {
     onError() {
-      this.setData({ isError: true });
+      this.setData({ isError: true })
     }
   }
 })

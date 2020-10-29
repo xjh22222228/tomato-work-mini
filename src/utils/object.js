@@ -11,12 +11,13 @@ export function filterNil(object) {
   }
 
   for (let k in object) {
+    /* eslint-disable */
     if (object[k] == null) {
       delete object[k]
     } else {
       filterNil(object[k])
     }
   }
-  
+
   return object
 }

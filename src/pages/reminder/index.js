@@ -1,10 +1,10 @@
-import pullUpPagination from '../../behaviors/pullUpPagination';
-import merge from 'lodash.merge';
+import pullUpPagination from '../../behaviors/pullUpPagination'
+import merge from 'lodash.merge'
 import {
   serviceGetReminder,
   serviceDeleteReminder,
   serviceUpdateReminder
-} from '../../services/reminder';
+} from '../../services/reminder'
 
 Page(merge(pullUpPagination, {
   data: {
@@ -16,50 +16,50 @@ Page(merge(pullUpPagination, {
     },
   },
   onTabChange({ detail }) {
-    this.setData({ tabValue: detail.name });
-    this.$resetData();
+    this.setData({ tabValue: detail.name })
+    this.$resetData()
   },
   getData(params) {
     return serviceGetReminder({
       sort: 'type-desc',
       type: this.data.tabValue,
       ...params
-    });
+    })
   },
   handleClickCell(e) {
-    const { detail } = e.currentTarget.dataset;
+    const { detail } = e.currentTarget.dataset
     this.setData({
       popupShow: true,
       currentData: detail
-    });
+    })
   },
   handleDelete(e) {
-    const { id } = e.currentTarget.dataset;
+    const { id } = e.currentTarget.dataset
     serviceDeleteReminder(id)
     .then(() => {
-      this.$refreshData();
-    });
+      this.$refreshData()
+    })
   },
   onPopupClose() {
-    this.setData({ popupShow: false });
+    this.setData({ popupShow: false })
   },
   onClickCreateButton() {
     this.setData({
       popupShow: true,
       currentData: null
-    });
+    })
   },
   onSwitchChange(e) {
-    const { index, detail } = e.currentTarget.dataset;
-    const hasCheck = e.detail;
-    const data = [...this.data.data];
-    data[index].__loading__ = true;
-    data[index].__hasChecked__ = hasCheck;
-    this.setData({ data });
+    const { index, detail } = e.currentTarget.dataset
+    const hasCheck = e.detail
+    const data = [...this.data.data]
+    data[index].__loading__ = true
+    data[index].__hasChecked__ = hasCheck
+    this.setData({ data })
     serviceUpdateReminder(detail.id, {
       type: hasCheck ? 1 : 2
     }).finally(() => {
-      this.$refreshData();
-    });
+      this.$refreshData()
+    })
   }
 }))

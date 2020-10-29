@@ -5,11 +5,11 @@ import {
   TODAY_TASK_URL,
   TODO_LIST_URL,
   CAPITAL_FLOW_URL
-} from '../../constants/routePath';
-import { navigateTo } from '../../utils/wxApi';
-import dayjs from 'dayjs';
+} from '../../constants/routePath'
+import { navigateTo } from '../../utils/wxApi'
+import dayjs from 'dayjs'
 
-const WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 Page({
   data: {
@@ -48,23 +48,23 @@ Page({
     week: WEEK[new Date().getDay()]
   },
   onShow() {
-    this.initDate();
-    const authLoginEl = this.selectComponent('#auth-login');
-    authLoginEl && authLoginEl.refreshLoginStatus();
+    this.initDate()
+    const authLoginEl = this.selectComponent('#auth-login')
+    authLoginEl && authLoginEl.refreshLoginStatus()
   },
   onHide() {
-    clearTimeout(this.initDate);
+    clearTimeout(this.initDate)
   },
   handleClickNav(e) {
-    const { detail } = e.currentTarget.dataset;
-    navigateTo(detail.url);
+    const { detail } = e.currentTarget.dataset
+    navigateTo(detail.url)
   },
   initDate() {
-    const time = dayjs().format('MM/DD HH:mm:ss');
+    const time = dayjs().format('MM/DD HH:mm:ss')
     this.setData({
       time
-    });
+    })
 
-    setTimeout(this.initDate, 1000);
+    setTimeout(this.initDate, 1000)
   }
 })

@@ -14,7 +14,7 @@ Component({
   },
   methods: {
     onClickMessage() {
-      this.triggerEvent('clickMessage');
+      this.triggerEvent('clickMessage')
     }
   }
 })

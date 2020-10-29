@@ -1,5 +1,5 @@
-import { reLaunch } from '../../utils/wxApi';
-import { HOME_URL } from '../../constants/routePath';
+import { reLaunch } from '../../utils/wxApi'
+import { HOME_URL } from '../../constants/routePath'
 
 Page({
   data: {
@@ -8,8 +8,8 @@ Page({
   onClose() {
     wx.navigateBack({
       fail() {
-        reLaunch(HOME_URL);
+        reLaunch(HOME_URL)
       }
-    });
+    })
   }
 })

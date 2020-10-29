@@ -1,12 +1,10 @@
 
 Component({
   externalClasses: ['custom-class'],
-  properties: {
-    
-  },
+  properties: {},
   methods: {
     onClick() {
-      this.triggerEvent('click');
+      this.triggerEvent('click')
     }
   }
 })

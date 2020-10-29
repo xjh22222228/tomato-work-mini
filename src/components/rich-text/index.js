@@ -1,22 +1,22 @@
-const WxParse = require('../../lib/wxParse/wxParse.js');
+const WxParse = require('../../lib/wxParse/wxParse.js')
 
 Component({
   properties: {
     html: {
       type: String,
       observer() {
-        this.initRichText();
+        this.initRichText()
       }
     }
   },
   lifetimes: {
     attached() {
-      this.initRichText();
+      this.initRichText()
     }
   },
   methods: {
     initRichText() {
-      WxParse.wxParse('richText', 'html', this.properties.html, this, 5);
+      WxParse.wxParse('richText', 'html', this.properties.html, this, 5)
     }
   }
 })

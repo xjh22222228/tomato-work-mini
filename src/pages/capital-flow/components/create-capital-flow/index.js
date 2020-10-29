@@ -1,13 +1,13 @@
-import dayjs from 'dayjs';
-import Dialog from '../../../../../@vant/weapp/dialog/dialog';
+import dayjs from 'dayjs'
+import Dialog from '../../../../../@vant/weapp/dialog/dialog'
 import {
   serviceGetCapitalFlowType,
   serviceCreateCapitalFlow,
   serviceUpdateCapitalFlow,
   serviceDeleteCapitalFlow
-} from '../../../../services/capitalFlow';
+} from '../../../../services/capitalFlow'
 
-const FORMAT = 'YYYY-MM-DD';
+const FORMAT = 'YYYY-MM-DD'
 
 Component({
   options: {
@@ -20,8 +20,8 @@ Component({
         setTimeout(() => {
           this.setData({
             focus: isShow
-          });
-        }, 200);
+          })
+        }, 200)
       }
     },
     data: {
@@ -32,8 +32,8 @@ Component({
             price: value.price,
             remarks: value.remarks,
             classifyValue: value.typeId,
-            date: dayjs(value.date).format(FORMAT),
-          });
+            date: dayjs(value.createdAt).format(FORMAT),
+          })
         }
       }
     }
@@ -49,7 +49,7 @@ Component({
   },
   lifetimes: {
     attached() {
-      this.getData();
+      this.getData()
     }
   },
   methods: {
@@ -60,22 +60,22 @@ Component({
           this.setData({
             classifyList: res,
             classifyValue: res[0].id
-          });
+          })
         }
-      });
+      })
     },
     onClose() {
-      this.triggerEvent('close');
+      this.triggerEvent('close')
     },
     onInputChange(e) {
-      const { fieldName } = e.currentTarget.dataset;
-      this.setData({ [fieldName]: e.detail });
+      const { fieldName } = e.currentTarget.dataset
+      this.setData({ [fieldName]: e.detail })
     },
     onDateChange(e) {
-      this.setData({ date: e.detail.value });
+      this.setData({ date: e.detail.value })
     },
     onDropdownChange(e) {
-      this.setData({ classifyValue: e.detail });
+      this.setData({ classifyValue: e.detail })
     },
     handleDeleteButton() {
       Dialog.confirm({
@@ -85,35 +85,35 @@ Component({
       }).then(() => {
         serviceDeleteCapitalFlow(this.properties.data.id)
         .then(() => {
-          this.onClose();
-          this.triggerEvent('success');
-        });
-      }).catch(() => {});
+          this.onClose()
+          this.triggerEvent('success')
+        })
+      }).catch(() => {})
     },
     handleSubmit() {
-      const { classifyValue, remarks, price = 0, date } = this.data;
-      const { data } = this.properties;
+      const { classifyValue, remarks, price = 0, date } = this.data
+      const { data } = this.properties
       const params = {
         date: dayjs(date).format('YYYY-MM-DD HH:mm:ss'),
         typeId: classifyValue,
         price: Number(price),
         remarks
-      };
+      }
 
       this.setData({ confirmLoading: true });
 
       (
-        data 
-        ? serviceUpdateCapitalFlow(data.id, params) 
+        data
+        ? serviceUpdateCapitalFlow(data.id, params)
         : serviceCreateCapitalFlow(params)
       )
       .then(() => {
-        this.onClose();
-        this.triggerEvent('success');
+        this.onClose()
+        this.triggerEvent('success')
       })
       .finally(() => {
-        this.setData({ confirmLoading: false });
-      });
+        this.setData({ confirmLoading: false })
+      })
     }
   }
 })

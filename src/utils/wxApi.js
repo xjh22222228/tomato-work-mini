@@ -2,7 +2,7 @@
  * 微信API接口封装
  * @author xiejiahe
  */
-import qs from 'qs';
+import qs from 'qs'
 
 /**
  * 预览图片
@@ -17,6 +17,7 @@ export function previewImage(urls, index = 0, keyName) {
     urls = [urls]
   }
 
+  /* eslint-disable */
   if (keyName != null) {
     urls = urls.map(el => el[keyName])
   }
