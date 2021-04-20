@@ -47,7 +47,7 @@ Component({
       const { content, date, time } = this.data
       const { data } = this.properties
       const params = {
-        date: dayjs(date + ' ' + time).valueOf(),
+        date: dayjs(date + ' ' + time).format('YYYY-MM-DD HH:mm:ss'),
         content
       }
 
@@ -58,13 +58,13 @@ Component({
         ? serviceUpdateReminder(data.id, params)
         : serviceCreateReminder(params)
       )
-      .then(() => {
-        this.onClose()
-        this.triggerEvent('success')
-      })
-      .finally(() => {
-        this.setData({ confirmLoading: false })
-      })
+        .then(() => {
+          this.onClose()
+          this.triggerEvent('success')
+        })
+        .finally(() => {
+          this.setData({ confirmLoading: false })
+        })
     }
   }
 })
