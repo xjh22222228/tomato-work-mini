@@ -59,7 +59,3 @@ export function serviceUpdateCapitalFlow(id, data) {
 export function serviceCreateCapitalFlow(data) {
   return post(api.capitalFlow, data)
 }
-
-export function serviceGetCapitalFlowPrice(data) {
-  return get(api.getCapitalFlowPrice, data)
-}
