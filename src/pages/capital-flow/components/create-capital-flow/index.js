@@ -30,7 +30,7 @@ Component({
         if (value) {
           this.setData({
             price: value.price,
-            remarks: value.remarks,
+            remark: value.remark,
             classifyValue: value.typeId,
             date: dayjs(value.createdAt).format(FORMAT),
           })
@@ -44,7 +44,7 @@ Component({
     date: dayjs().format(FORMAT),
     confirmLoading: false,
     price: '',
-    remarks: '',
+    remark: '',
     focus: false
   },
   lifetimes: {
@@ -91,13 +91,13 @@ Component({
       }).catch(() => {})
     },
     handleSubmit() {
-      const { classifyValue, remarks, price = 0, date } = this.data
+      const { classifyValue, remark, price = 0, date } = this.data
       const { data } = this.properties
       const params = {
         date: dayjs(date).format('YYYY-MM-DD HH:mm:ss'),
         typeId: classifyValue,
         price: Number(price),
-        remarks
+        remark
       }
 
       this.setData({ confirmLoading: true });

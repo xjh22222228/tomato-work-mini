@@ -39,14 +39,14 @@
         title-width="68px"
       />
       <van-field
-        value="{{ remarks }}"
+        value="{{ remark }}"
         label="备注信息:"
         placeholder="添加备注信息"
         autosize
         clearable
         maxlength="{{ 300 }}"
         border="{{ false }}"
-        data-field-name="remarks"
+        data-field-name="remark"
         bind:change="onInputChange"
         title-width="68px"
       />

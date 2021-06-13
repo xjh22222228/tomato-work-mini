@@ -50,7 +50,7 @@
             <view class="title">{{ item.name }}</view>
             <view class="price" style="color: {{ item.__priceColor__ }}">{{ item.__symbol__ + item.price }}</view>
           </view>
-          <view class="remarks">{{ item.remarks }}</view>
+          <view class="remark">{{ item.remark }}</view>
           <view class="date">{{ item.__date__ }} {{ item.__week__ }}</view>
         </view>
 
