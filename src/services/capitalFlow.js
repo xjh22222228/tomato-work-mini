@@ -32,7 +32,7 @@ export function serviceCreateCapitalFlowType(data) {
 export async function serviceGetCapitalFlow(params) {
   const result = await get(api.capitalFlow, params)
   result.rows = result.rows.map(item => {
-    const date = dayjs(item.date).format('YYYY-MM-DD')
+    const date = dayjs(item.createdAt).format('YYYY-MM-DD')
     const today = dayjs().format('YYYY-MM-DD')
     item.__date__ = date
     item.__week__ = date === today ? '今天' : getWeek(item.createdAt)
