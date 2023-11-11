@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import Dialog from '../../../../../@vant/weapp/dialog/dialog'
+import Dialog from '@vant/weapp/dialog/dialog'
 import {
   serviceGetCapitalFlowType,
   serviceCreateCapitalFlow,

@@ -44,10 +44,10 @@
   resolved "https://registry.npm.taobao.org/@types/wechat-miniprogram/download/@types/wechat-miniprogram-3.0.0.tgz#401d0bf4f437dd9463e8ca99209e4742302d1e54"
   integrity sha1-QB0L9PQ33ZRj6MqZIJ5HQjAtHlQ=
 
-"@vant/weapp@^1.5.2":
+"@vant/weapp@1.5.2":
   version "1.5.2"
-  resolved "https://registry.npm.taobao.org/@vant/weapp/download/@vant/weapp-1.5.2.tgz#ea09223f52b3a0ccc4c914ebe586b69b0c801685"
-  integrity sha1-6gkiP1KzoMzEyRTr5Ya2mwyAFoU=
+  resolved "https://registry.yarnpkg.com/@vant/weapp/-/weapp-1.5.2.tgz#ea09223f52b3a0ccc4c914ebe586b69b0c801685"
+  integrity sha512-jJFVszQXijyFN+D85Dmu3BGRwr5Ofh/MSByq1VPSoN1FeIisHNtcpfLycYzjJRkpPCfm9T1L9YlOUskWXnjJNQ==
   dependencies:
     "@types/wechat-miniprogram" "^3.0.0"
 
@@ -117,10 +117,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-blueimp-md5@^2.18.0:
+blueimp-md5@2.18.0:
   version "2.18.0"
-  resolved "https://registry.npm.taobao.org/blueimp-md5/download/blueimp-md5-2.18.0.tgz#1152be1335f0c6b3911ed9e36db54f3e6ac52935"
-  integrity sha1-EVK+EzXwxrORHtnjbbVPPmrFKTU=
+  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.18.0.tgz#1152be1335f0c6b3911ed9e36db54f3e6ac52935"
+  integrity sha512-vE52okJvzsVWhcgUHOv+69OG3Mdg151xyn41aVQN/5W5S+S43qZhxECtYLAEHMSFWX6Mv5IZrzj3T5+JqXfj5Q==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -190,10 +190,10 @@ cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-dayjs@^1.9.4:
+dayjs@1.9.4:
   version "1.9.4"
-  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.9.4.tgz?cache=0&sync_timestamp=1603435718806&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdayjs%2Fdownload%2Fdayjs-1.9.4.tgz#fcde984e227f4296f04e7b05720adad2e1071f1b"
-  integrity sha1-/N6YTiJ/QpbwTnsFcgra0uEHHxs=
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.4.tgz#fcde984e227f4296f04e7b05720adad2e1071f1b"
+  integrity sha512-ABSF3alrldf7nM9sQ2U+Ln67NRwmzlLOqG7kK03kck0mw3wlSSEKv/XhKGGxUjQcS57QeiCyNdrFgtj9nWlrng==
 
 debug@^4.0.1, debug@^4.1.1:
   version "4.2.0"
@@ -508,10 +508,10 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-lodash.merge@^4.6.2:
+lodash.merge@4.6.2:
   version "4.6.2"
-  resolved "https://registry.npm.taobao.org/lodash.merge/download/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
-  integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash@^4.17.14, lodash@^4.17.19:
   version "4.17.20"
@@ -598,7 +598,7 @@ punycode@^2.1.0:
   resolved "https://registry.npm.taobao.org/punycode/download/punycode-2.1.1.tgz?cache=0&sync_timestamp=1589682803838&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpunycode%2Fdownload%2Fpunycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
 
-qs@^6.9.4:
+qs@6.9.4:
   version "6.9.4"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
   integrity sha512-A1kFqHekCTM7cz0udomYUoYNWjBebHm/5wzU/XqrBRBNWectVH0QIiN+NEcZ0Dte5hvzHwbr8+XQmguPhJ6WdQ==

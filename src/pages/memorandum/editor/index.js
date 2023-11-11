@@ -1,4 +1,4 @@
-import Dialog from '../../../../@vant/weapp/dialog/dialog'
+import Dialog from '@vant/weapp/dialog/dialog'
 import {
   serviceGetMemorandumById,
   serviceDeleteMemorandumById,

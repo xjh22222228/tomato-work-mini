@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/xjh22222228/tomato-work-weapp#readme",
   "dependencies": {
-    "@vant/weapp": "^1.5.2",
-    "blueimp-md5": "^2.18.0",
-    "dayjs": "^1.9.4",
-    "lodash.merge": "^4.6.2",
-    "qs": "^6.9.4"
+    "@vant/weapp": "1.5.2",
+    "blueimp-md5": "2.18.0",
+    "dayjs": "1.9.4",
+    "lodash.merge": "4.6.2",
+    "qs": "6.9.4"
   },
   "devDependencies": {
     "eslint": "^7.12.1"
