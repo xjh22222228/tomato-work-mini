@@ -1,4 +1,3 @@
-
 const API = {
   user: {
     // 账号密码登录
@@ -8,18 +7,18 @@ const API = {
     // 更新用户
     update: '/user/update',
     // 获取用户配置
-    getConfig: '/userConfig'
+    getConfig: '/userConfig',
   },
   // 提醒事项
   reminder: '/reminder',
   // 今日待办
   todayTask: '/task',
   // 资金流动类型
-  capitalFlowType: '/capitalFlowType',
+  capitalFlowType: '/billType',
   // 资金流动
-  capitalFlow: '/capitalFlow',
+  capitalFlow: '/bill',
   // 获取资金流动金额
-  getCapitalFlowPrice: '/capitalFlow/price',
+  getCapitalFlowPrice: '/bill/price',
   // 备忘录
   memorandum: '/memorandum',
   // 站内消息
@@ -27,7 +26,7 @@ const API = {
   // 活动清单
   todoList: '/todoList',
   // 获取首页面板数据
-  getPanelData: '/panel'
+  getPanelData: '/panel',
 }
 
 export default API
