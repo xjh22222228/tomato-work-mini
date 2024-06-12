@@ -3,11 +3,9 @@
   <br />
   <b>Tomato Work 小程序</b>
   <p align="center">
-    <a href="https://github.com/xjh22222228/tomato-work">WEB </a>
-    <a href="https://github.com/xjh22222228/tomato-work-server"> 服务端</a>
-  </p>
-  <p align="center">
-    <a href="https://github.com/xjh22222228/tomato-work-weapp/stargazers"><img src="https://img.shields.io/github/stars/xjh22222228/tomato-work-weapp" alt="Stars Badge"/></a>
+    <a href="https://github.com/xjh22222228/tomato-work">
+      <img alt="Server" src="https://img.shields.io/static/v1.svg?label=&message=WEB&style=flat-square&color=e8883a">
+    </a>
     <img src="https://img.shields.io/github/package-json/v/xjh22222228/tomato-work-weapp" />
     <img src="https://img.shields.io/github/license/xjh22222228/tomato-work-weapp" />
     <a href="https://hits.dwyl.com/xjh22222228/tomato-work-weapp">
