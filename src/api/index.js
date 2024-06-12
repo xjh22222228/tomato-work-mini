@@ -14,11 +14,11 @@ const API = {
   // 今日待办
   todayTask: '/task',
   // 资金流动类型
-  capitalFlowType: '/billType',
+  billType: '/billType',
   // 资金流动
-  capitalFlow: '/bill',
+  bill: '/bill',
   // 获取资金流动金额
-  getCapitalFlowPrice: '/bill/price',
+  getBillPrice: '/bill/price',
   // 备忘录
   memorandum: '/memorandum',
   // 站内消息

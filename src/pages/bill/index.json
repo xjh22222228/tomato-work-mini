@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的账单",
+  "usingComponents": {
+    "create-bill": "./components/create-bill/index"
+  }
+}

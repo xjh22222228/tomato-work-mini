@@ -7,18 +7,16 @@
     "src/pages/reminder/index",
     "src/pages/today-task/index",
     "src/pages/todo-list/index",
-    "src/pages/capital-flow/index",
+    "src/pages/bill/index",
     "src/pages/my/index/index",
     "src/pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Tomato Work Pro",
+    "navigationBarTitleText": "Work Pro",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#666666",
     "selectedColor": "#000000",
@@ -53,7 +51,7 @@
     "range-picker-date": "/src/components/range-picker-date/index",
     "auth-login": "/src/components/auth-login/index",
     "floating-action-button": "/src/components/floating-action-button/index",
-    
+
     "van-button": "/miniprogram_npm/@vant/weapp/button/index",
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
@@ -115,5 +113,12 @@
     "van-goods-action": "/miniprogram_npm/@vant/weapp/goods-action/index",
     "van-goods-action-icon": "/miniprogram_npm/@vant/weapp/goods-action-icon/index",
     "van-goods-action-button": "/miniprogram_npm/@vant/weapp/goods-action-button/index"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "resolveAlias": {
+    "@/*": "/*"
   }
 }

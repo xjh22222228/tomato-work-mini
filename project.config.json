@@ -1,112 +1,31 @@
 {
-  "description": "项目配置文件",
+  "compileType": "miniprogram",
+  "libVersion": "trial",
   "packOptions": {
     "ignore": [],
     "include": []
   },
   "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
+    "useCompilerPlugins": [
+      "sass"
+    ],
     "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
     "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": false,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": false,
-    "useApiHostProcess": false,
+    "packNpmRelationList": [],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.11.1",
-  "appid": "wx6e44af50236bdb00",
-  "projectname": "tomato-work-weapp",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "首页",
-          "pathName": "src/pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "我的",
-          "pathName": "src/pages/my/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "财务管理",
-          "pathName": "src/pages/capital-flow/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "提醒事项",
-          "pathName": "src/pages/reminder/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "我的消息",
-          "pathName": "src/pages/my/message/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "备忘录详情",
-          "pathName": "src/pages/memorandum-detail/index",
-          "query": "?id=7219f09f-f028-49ff-9847-c357b4fbc670",
-          "scene": null
-        },
-        {
-          "name": "我的备忘",
-          "pathName": "src/pages/memorandum/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "我的备忘编辑器",
-          "pathName": "src/pages/memorandum/editor/index",
-          "query": "id=81980b29-0fed-43bd-8d18-d5a354a2b77b",
-          "scene": null
-        },
-        {
-          "name": "活动清单",
-          "pathName": "src/pages/todo-list/index",
-          "query": "",
-          "scene": null
-        }
-      ]
     }
   },
+  "condition": {},
   "editorSetting": {
-    "tabIndent": "insertSpaces",
+    "tabIndent": "auto",
     "tabSize": 2
-  }
+  },
+  "appid": "wx6e44af50236bdb00"
 }

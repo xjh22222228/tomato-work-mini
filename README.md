@@ -16,16 +16,14 @@
   </p>
 </p>
 
-
 ## Preview
-由于个人类目权限问题，线上版本已经没有再更新了，建议下载源码查看
 
+由于个人类目权限问题，线上版本已经没有再更新了，建议下载源码查看
 
 <img src="media/screenshot.png" width="300" />
 
-
-
 ## Todo list
+
 - [x] 账号登录
 - [x] 提醒事项
 - [ ] 活动清单
@@ -35,11 +33,6 @@
 - [x] 我的备忘
 - [x] 我的消息
 
-## Setup
-```bash
-## 修改 project.config.json appid修改为你的小程序appid
-```
-
-
 ## License
+
 [MIT](https://opensource.org/licenses/MIT)

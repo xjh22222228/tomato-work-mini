@@ -2,7 +2,6 @@
  * 微信API接口封装
  * @author xiejiahe
  */
-import qs from 'qs'
 
 /**
  * 预览图片
@@ -19,13 +18,13 @@ export function previewImage(urls, index = 0, keyName) {
 
   /* eslint-disable */
   if (keyName != null) {
-    urls = urls.map(el => el[keyName])
+    urls = urls.map((el) => el[keyName])
   }
 
   wx.previewImage({
     current: urls[index],
-    urls
-  });
+    urls,
+  })
 }
 
 /**
@@ -37,23 +36,28 @@ export function previewImage(urls, index = 0, keyName) {
  * navigateTo('/', { title: 'WeChat' });
  * navigateTo({ url: '/'}, { title: 'WeChat' });
  */
-export const navigateTo = navigate('navigateTo');
-export const redirectTo = navigate('redirectTo');
-export const reLaunch = navigate('reLaunch');
+export const navigateTo = navigate('navigateTo')
+export const redirectTo = navigate('redirectTo')
+export const reLaunch = navigate('reLaunch')
 function navigate(name) {
-  
   return function (params, data) {
-    let object = {};
+    let object = {}
     if (typeof params === 'string') {
-      object.url = params;
+      object.url = params
     } else {
-      object = { ...params };
+      object = { ...params }
     }
 
     if (data) {
-      object.url = `${object.url}?${qs.stringify(data)}`;
+      object.url += '?_t=t'
+
+      for (const k in data) {
+        if (data[k] != null) {
+          url += `&${k}=${data[k]}`
+        }
+      }
     }
 
-    return wx[name](object);
+    return wx[name](object)
   }
 }

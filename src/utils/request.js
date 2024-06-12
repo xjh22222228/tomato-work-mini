@@ -14,15 +14,18 @@ function handleError(res) {
   }
   wx.showToast({
     title: res.data.msg,
-    icon: 'none'
+    icon: 'none',
   })
 }
 
 Promise.prototype.finally = function (callback) {
   let P = this.constructor
   return this.then(
-    value => P.resolve(callback()).then(() => value),
-    reason => P.resolve(callback()).then(() => { throw reason })
+    (value) => P.resolve(callback()).then(() => value),
+    (reason) =>
+      P.resolve(callback()).then(() => {
+        throw reason
+      })
   )
 }
 
@@ -36,26 +39,26 @@ export default function request(object) {
       successAlert: false,
       // 请求失败是否弹框提示
       errorAlert: true,
-      ...object
+      ...object,
     }
 
     // 请求默认数据
     config.data = filterNil({
-      ...object.data
+      ...object.data,
     })
 
     // 请求是否显示 loading
-    config.isLoading = 'isLoading' in config
-      ? config.isLoading
-      : config.data.pageNo === 0
+    config.isLoading =
+      'isLoading' in config ? config.isLoading : config.data.pageNo === 0
     // 请求中的文字
-    config.loadingText = 'loadingText' in config ? config.loadingText : LOADING_TEXT
+    config.loadingText =
+      'loadingText' in config ? config.loadingText : LOADING_TEXT
     // 请求失败提示语
     config.errorText = config.errorText || ERROR_TEXT
     // 请求头
     config.header = {
-      token: userInfo.token,
-      ...config.header
+      token: userInfo?.token,
+      ...config.header,
     }
 
     config.url = network.baseUrl + normalizeUrl(config.url, config.data)
@@ -72,7 +75,7 @@ export default function request(object) {
           if (config.successAlert) {
             wx.showToast({
               title: config.successText || data.message,
-              icon: 'none'
+              icon: 'none',
             })
           }
 
@@ -81,12 +84,12 @@ export default function request(object) {
         }
       }
 
-      (config.errorAlert && handleError(res))
+      config.errorAlert && handleError(res)
       reject(res)
     }
 
     config.fail = function (res) {
-      (config.errorAlert && handleError(res))
+      config.errorAlert && handleError(res)
       reject(res)
     }
 

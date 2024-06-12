@@ -1,0 +1,85 @@
+<view>
+  <view class="information">
+    <view class="price-detail">
+      <view class="subtitle">净资产</view>
+      <view class="available">{{ available }}</view>
+
+      <view class="price">
+        <text class="name">收入 </text>
+        <text class="num">{{ income }}</text>
+        <text class="name" style="margin-left: 10px">支出 </text>
+        <text class="num">{{ consumption }}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="filter-wrapper">
+    <van-search
+      value="{{ keyword }}"
+      placeholder="输入搜索关键词"
+      shape="round"
+      bind:search="$resetData"
+      bind:change="onSearchChange"
+      style="flex: 1"
+      focus="{{ false }}"
+    />
+    <van-dropdown-menu>
+      <van-dropdown-item
+        title="筛选"
+        value="{{ filter.value }}"
+        options="{{ filter.options }}"
+        bind:change="onDropDownChange"
+      />
+    </van-dropdown-menu>
+  </view>
+
+  <range-picker-date bind:confirm="getDateValue" />
+
+  <block wx:if="{{ data.length > 0 }}">
+    <van-cell-group custom-class="cell-group">
+      <van-swipe-cell right-width="{{ 65 }}" wx:for="{{ data }}" wx:key="id">
+        <view
+          class="item"
+          hover-class="touch-active"
+          hover-stay-time="{{ 0 }}"
+          bind:tap="onClickCell"
+          data-detail="{{ item }}"
+        >
+          <view class="top">
+            <view class="title">{{ item.name }}</view>
+            <view class="price" style="color: {{ item.__priceColor__ }}">{{
+              item.__symbol__ + item.price
+            }}</view>
+          </view>
+          <view class="remark">{{ item.remark }}</view>
+          <view class="date">{{ item.__date__ }} {{ item.__week__ }}</view>
+        </view>
+
+        <van-button
+          slot="right"
+          type="danger"
+          custom-style="height: 100%; width: 65px;"
+          bind:click="handleDelete"
+          data-id="{{ item.id }}"
+        >
+          删除
+        </van-button>
+      </van-swipe-cell>
+    </van-cell-group>
+  </block>
+  <no-data wx:else />
+
+  <reach-bottom-loading
+    has-more="{{ pagination.hasMore }}"
+    loading="{{ pagination.loading }}"
+  />
+
+  <floating-action-button bind:click="handleToggleCreatePopupShow" />
+</view>
+
+<create-bill
+  show="{{ createPopupShow }}"
+  data="{{ currentData }}"
+  bind:close="handleToggleCreatePopupShow"
+  bind:success="$refreshData"
+/>

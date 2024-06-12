@@ -1,4 +1,4 @@
-import { USER_INFO } from './src/constants/storage'
+import { USER_INFO } from '@/src/constants/storage'
 
 App({
   globalData: {
@@ -18,8 +18,8 @@ App({
       email: '',
       role: '',
       token: null, // 登录凭证
-      location: ''
-    }
+      location: '',
+    },
   },
   onLaunch: function () {
     const userInfo = wx.getStorageSync(USER_INFO) || {}
