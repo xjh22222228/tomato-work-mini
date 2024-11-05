@@ -31,7 +31,7 @@ export function serviceCreateBillType(data) {
 
 // 流动资金
 export async function serviceGetBill(params) {
-  const result = await get(api.bill, params)
+  const result = await post(api.bill + '/get', params)
   result.rows = result.rows.map((item) => {
     const date = dayjs(item.createdAt).format('YYYY-MM-DD')
     const today = dayjs().format('YYYY-MM-DD')
